@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Accordion from "@mui/material/Accordion";
+import { Box } from "@mui/material";
+import AccordionFrom from "./AccordionForm/AccordionFrom";
+import MyButton from "../style/Button";
 
 const AcordionSelect = ({ id, title, icon, text }) => {
+  const [forms, setForm] = useState([]);
+  const addForm = () => {
+    setForm((prevForms) => [...prevForms, { id: prevForms.length + 1 }]);
+  };
+
+  const removeForm = (id) => {
+    setForm((prevForm) => prevForm.filter((form) => form.id !== id));
+  };
+
   return (
     <Accordion sx={{ direction: "rtl" }}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />} id={id}>
@@ -17,7 +28,37 @@ const AcordionSelect = ({ id, title, icon, text }) => {
           {title}
         </Typography>
       </AccordionSummary>
-      <AccordionDetails sx={{ textAlign: "start" }}>{text}</AccordionDetails>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          maxWidth: "80%",
+          paddingRight: "2rem",
+        }}
+      >
+        <ul
+          style={{
+            listStyleType: "none",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          {forms.map((form) => (
+            <li key={form.id}>
+              <AccordionFrom
+                id={form.id}
+                title={id}
+                onClick={() => removeForm(form.id)}
+              />
+            </li>
+          ))}
+        </ul>
+        <MyButton onClick={addForm} placeX="start" placeY="start">
+          {text}
+        </MyButton>
+      </Box>
     </Accordion>
   );
 };
