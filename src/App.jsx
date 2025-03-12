@@ -28,3 +28,31 @@ const App = () => {
 };
 
 export default App;
+// import React from "react";
+// import { Box, Typography, TextField } from "@mui/material"; // הוספת הייבוא הנכון
+// import { formFields } from "./pages/Resume/categoryTypes/formsFields";
+// import Checkbox from "@mui/material/Checkbox";
+// import "./pages/Resume/categories/categories.css";
+// const App = () => {
+//   return (
+//     <Box>
+//       {formFields.map((category) => (
+//         <Box key={category.title} className="boxForm">
+//           <Typography variant="h6">{category.title}</Typography>{" "}
+//           {category.fields.map((field) => (
+//             <Box key={field.label} className="formFiledColumn">
+//               <Typography>{field.name}</Typography>
+//               {field.type === "checkbox" ? (
+//                 <Checkbox inputProps={{ "aria-label": "controlled" }} />
+//               ) : (
+//                 <TextField sx={{ width: "50%" }} type={field.type} />
+//               )}
+//             </Box>
+//           ))}
+//         </Box>
+//       ))}
+//     </Box>
+//   );
+// };
+
+// export default App;

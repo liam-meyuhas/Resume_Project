@@ -3,19 +3,19 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Accordion from "@mui/material/Accordion";
-import AccordionSelectedForm from "../AccordionSelectedForm/AccordionSelectedForm.jsx";
 import "./accordionForm.css";
+import AccordionSelected from "../AccordionSelected/AccordionSelected.jsx";
 
-const AccordionForm = ({ id, title, icon, text }) => {
+const AccordionForm = ({ title, fields, setting }) => {
   return (
     <Accordion>
-      <AccordionSummary expandIcon={<ExpandMoreIcon />} id={id}>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />} id={setting.id}>
         <Typography className="accordionTitle" component="span">
-          {icon}
-          {title}
+          {setting.icon}
+          {setting.title}
         </Typography>
       </AccordionSummary>
-      <AccordionSelectedForm id={id} text={text} />
+      <AccordionSelected title={title} fields={fields} setting={setting} />
     </Accordion>
   );
 };

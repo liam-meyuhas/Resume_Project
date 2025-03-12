@@ -1,36 +1,41 @@
-import React, { useState } from "react";
-import { Box } from "@mui/material";
-import AccordionSelected from "../AccordionSelected/AccordionSelected";
-import MyButton from "../../../../style/Button";
+import { Box, TextField, Typography } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
+import "../AccordionSelectedForm/accordionSelectedForm.css";
 import "./accordionSelectedForm.css";
+import { Accordion, AccordionSummary, IconButton } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import DeleteIcon from "@mui/icons-material/Delete";
+import "../AccordionSelectedForm/accordionSelectedForm.css";
 
-const AccordionSelectedForm = ({ id, text }) => {
-  const [forms, setForm] = useState([]);
-  const addForm = () => {
-    setForm((prevForms) => [...prevForms, { id: prevForms.length + 1 }]);
-  };
-
-  const removeForm = (id) => {
-    setForm((prevForm) => prevForm.filter((form) => form.id !== id));
-  };
-
+const AccordionSelectedForm = ({ onDelete, title, fields, id }) => {
   return (
-    <Box className="accordionForm">
-      <ul className="formFileds">
-        {forms.map((form) => (
-          <li key={form.id}>
-            <AccordionSelected
-              id={form.id}
-              title={id}
-              onClick={() => removeForm(form.id)}
-            />
-          </li>
-        ))}
-      </ul>
-      <MyButton onClick={addForm} placeX="start" placeY="start">
-        {text}
-      </MyButton>
-    </Box>
+    <Accordion className="accordionForm">
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Box className="accordionBox" component="span">
+          <IconButton aria-label="delete" sx={{ color: "red" }}>
+            <DeleteIcon onClick={onDelete} className="icon" />
+          </IconButton>
+          {title} #{id}
+        </Box>
+      </AccordionSummary>
+      <Box className="formFileds">
+        <ul>
+          <Box key={title} className="boxForm">
+            <Typography variant="h6">{title}</Typography>
+            {fields.map((field) => (
+              <Box key={field.label} className="formFiledColumn">
+                <Typography>{field.name}</Typography>
+                {field.type === "checkbox" ? (
+                  <Checkbox inputProps={{ "aria-label": "controlled" }} />
+                ) : (
+                  <TextField sx={{ width: "50%" }} type={field.type} />
+                )}
+              </Box>
+            ))}
+          </Box>
+        </ul>
+      </Box>
+    </Accordion>
   );
 };
 

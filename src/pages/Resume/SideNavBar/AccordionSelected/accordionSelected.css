@@ -1,3 +1,14 @@
-.accordionBox {
-  font-size: 1rem;
+.accordionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 80%;
+  padding: 1rem;
+}
+
+.formFileds {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
