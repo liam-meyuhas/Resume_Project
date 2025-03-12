@@ -1,21 +1,30 @@
 import React from "react";
-import HomePage from "./components/HomePage";
+import Home from "./pages/Home/Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Resume from "./components/Resume";
-import Root from "./pages/Root";
+import ResumeFormPage from "./pages/Resume/ResumeFormPage.jsx";
+import Root from "./pages/Root/Root.jsx";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
+const theme = () =>
+  createTheme({
+    direction: "rtl",
+  });
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "resume", element: <ResumeFormPage /> },
+    ],
+  },
+]);
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root />,
-      children: [
-        { path: "/", element: <HomePage /> },
-        { path: "resume", element: <Resume /> },
-      ],
-    },
-  ]);
-  return <RouterProvider router={router} />;
+  return (
+    <ThemeProvider theme={theme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 };
 
 export default App;
