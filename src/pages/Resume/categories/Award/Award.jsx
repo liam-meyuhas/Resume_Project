@@ -1,14 +1,12 @@
 import React, { useActionState, useState } from "react";
 import "../categories.css";
 import { Accordion, Box, TextField, Typography } from "@mui/material";
-import FormHeader from "../FormHeader/FormHeader";
+import FormHeader from "../../FormHeader/FormHeader";
 import "../categories.css";
-import SubmitButton from "../SubmitButton/SubmitButton";
-import DisplayErrors from "../DisplayErrors/DisplayErrors";
+import SubmitButton from "../../SubmitButton/SubmitButton";
+import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 
 const Award = () => {
-  const [resumeData, setResumeData] = useState([]);
-
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
     const Link = data.Link;
@@ -27,12 +25,12 @@ const Award = () => {
         },
       };
     }
-    setResumeData((resumeData) => [...resumeData, { ...data }]);
-    return { error: null };
+    return { error: null, resumeData: { ...data } };
   };
-  console.log(resumeData);
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
+  console.log(formState.resumeData);
+
   return (
     <form action={formAction}>
       <Accordion className="form">
