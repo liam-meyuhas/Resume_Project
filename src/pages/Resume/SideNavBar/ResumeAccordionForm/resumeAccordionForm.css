@@ -1,0 +1,9 @@
+.accordionTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.internalAccordion {
+  max-width: 80%;
+}

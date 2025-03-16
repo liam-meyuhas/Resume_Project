@@ -11,13 +11,23 @@ import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import PersonIcon from "@mui/icons-material/Person";
 
+import GeneralInformation from "../categories/GeneralInformation/GeneralInformation";
+import Award from "../categories/Award/Award";
+import Certificate from "../categories/Certificate/Certificate";
+import Experience from "../categories/Experience/Experience";
+import Education from "../categories/Education/Education";
+import Volunteer from "../categories/Volunteer/Volunteer";
+import Hobbies from "../categories/Hobbies/Hobies";
+import Publication from "../categories/Publication/Publication";
+import Language from "../categories/Language/Language";
+import MilitaryService from "../categories/MilitaryService/MilitaryService";
+import Projects from "../categories/Projects/Projects";
+import Skills from "../categories/Skills/Skills";
+import PersonalInformation from "../categories/PersonalInformation/PersonalInformation";
+
 export const FORMSFIELDS = [
   {
-    title: "General Information",
-    fields: [
-      { name: "שם", type: "text", label: "Name" },
-      { name: "תפקיד", type: "text", label: "Job" },
-    ],
+    form: <GeneralInformation />,
     setting: {
       icon: <SettingsIcon />,
       title: "מידע כללי",
@@ -26,13 +36,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Personal Information",
-    fields: [
-      { name: "מייל", type: "text", label: "mail" },
-      { name: "כתובת", type: "text", label: "Address" },
-      { name: "טלפון", type: "text", label: "PhoneNumber" },
-      { name: "לינקדין", type: "text", label: "Linkdin" },
-    ],
+    form: <PersonalInformation />,
     setting: {
       icon: <PersonIcon />,
       title: "פרטים אישיים",
@@ -41,15 +45,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Experience",
-    fields: [
-      { name: "תאריך התחלה", type: "date", label: "StartDate" },
-      { name: "תאריך סיום", type: "date", label: "EndDate" },
-      { name: "עובד כאן", type: "checkbox", label: "IsWorkHere" },
-      { name: "תפקיד", type: "text", label: "Job" },
-      { name: "שם חברה", type: "text", label: "CompanyName" },
-      { name: "מיקום חברה", type: "text", label: "CompanyLocation" },
-    ],
+    form: <Experience />,
+
     setting: {
       icon: <BusinessCenterIcon />,
       title: "נסיון תעסוקתי",
@@ -58,19 +55,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Education",
-    fields: [
-      { name: "תאריך התחלה", type: "date", label: "StartDate" },
-      { name: "תאריך סיום", type: "date", label: "EndDate" },
-      { name: "עובד כאן", type: "checkbox", label: "IsWorkHere" },
-      { name: "תואר", type: "text", label: "Degree" },
-      { name: "מוסד לימודים", type: "text", label: "EducationalInstitution" },
-      {
-        name: "תחום לימוד(אופציונאלי)",
-        type: "text",
-        label: "FieldStudy",
-      },
-    ],
+    form: <Education />,
+
     setting: {
       icon: <SchoolIcon />,
       title: "השכלה",
@@ -79,14 +65,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Volunteer",
-    fields: [
-      { name: "תאריך התחלה", type: "date", label: "StartDate" },
-      { name: "תאריך סיום", type: "date", label: "EndDate" },
-      { name: "עובד כאן", type: "checkbox", label: "IsWorkHere" },
-      { name: "תפקיד", type: "text", label: "Job" },
-      { name: "שם פרויקט", type: "text", label: "ProjectName" },
-    ],
+    form: <Volunteer />,
+
     setting: {
       icon: <VolunteerActivismIcon />,
       title: "התנדבות",
@@ -95,14 +75,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "MilitaryService",
-    fields: [
-      { name: "תאריך התחלה", type: "date", label: "StartDate" },
-      { name: "תאריך סיום", type: "date", label: "EndDate" },
-      { name: "עובד כאן", type: "checkbox", label: "IsWorkHere" },
-      { name: "תפקיד", type: "text", label: "Job" },
-      { name: "סיווג בטחוני", type: "text", label: "SecurityClearance" },
-    ],
+    form: <MilitaryService />,
+
     setting: {
       icon: <MilitaryTechIcon />,
       title: "שירות צבאי",
@@ -111,13 +85,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Certificate",
-    fields: [
-      { name: "תאריך קבלה", type: "date", label: "StartDate" },
-      { name: "שם הסמכה", type: "text", label: "CertificationName" },
-      { name: "מנפיק", type: "text", label: "Issuer" },
-      { name: "קישור (אתר או הסמכה)", type: "text", label: "Link" },
-    ],
+    form: <Certificate />,
+
     setting: {
       icon: <MarkEmailReadIcon />,
       title: "הסמכות",
@@ -126,13 +95,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Award",
-    fields: [
-      { name: "תאריך קבלה", type: "date", label: "StartDate" },
-      { name: "שם פרס", type: "text", label: "AwardName" },
-      { name: "מנפיק", type: "text", label: "Issuer" },
-      { name: "קישור (אתר או הסמכה)", type: "text", label: "Link" },
-    ],
+    form: <Award />,
+
     setting: {
       icon: <WorkspacePremiumIcon />,
       title: "פרסים",
@@ -141,13 +105,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Project",
-    fields: [
-      { name: "תאריך התחלה", type: "date", label: "StartDate" },
-      { name: "תאריך סיום", type: "date", label: "EndDate" },
-      { name: "בתהליך", type: "checkbox", label: "IsWorkHere" },
-      { name: "שם", type: "text", label: "Name" },
-    ],
+    form: <Projects />,
+
     setting: {
       icon: <ArticleIcon />,
       title: "פרויקטים",
@@ -156,8 +115,8 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Publication",
-    fields: [{ name: "פרסומים", type: "text", label: "Publication" }],
+    form: <Publication />,
+
     setting: {
       icon: <ArticleIcon />,
       title: "פרסומים",
@@ -166,8 +125,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Language",
-    fields: [{ name: "שפות", type: "text", label: "Language" }],
+    form: <Language />,
     setting: {
       icon: <TranslateIcon />,
       title: "שפות",
@@ -176,8 +134,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Skills",
-    fields: [{ name: "כישורים", type: "text", label: "Skills" }],
+    form: <Skills />,
     setting: {
       icon: <FormatListNumberedIcon />,
       title: "כישורים",
@@ -186,8 +143,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    title: "Hobby",
-    fields: [{ name: "תחביבים", type: "text", label: "Hobby" }],
+    form: <Hobbies />,
     setting: {
       icon: <SportsEsportsIcon />,
       title: "תחביבים",

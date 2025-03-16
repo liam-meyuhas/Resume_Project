@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./mainNavigation.css";
 const MainNavigation = () => {
   return (
-    <ul>
+    <ul className="linksRoot">
       <li>
         <Link to="/">Home</Link>
       </li>
