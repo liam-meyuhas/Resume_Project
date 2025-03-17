@@ -8,8 +8,11 @@ import Checkbox from "@mui/material/Checkbox";
 import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
+import { useDispatch } from "react-redux";
 
 const Education = () => {
+  const dispatch = useDispatch();
+
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
     const Link = data.Link;
@@ -23,6 +26,8 @@ const Education = () => {
           data,
         },
       };
+    } else {
+      dispatch({ type: "education", amount: data });
     }
     return { error: null, resumeData: { ...data } };
   };

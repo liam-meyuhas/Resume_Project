@@ -5,8 +5,11 @@ import FormHeader from "../../FormHeader/FormHeader";
 import "../categories.css";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
+import { useDispatch, useSelector } from "react-redux";
 
 const Award = () => {
+  const dispatch = useDispatch();
+  const resume = useSelector((state) => state.resume);
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
     const Link = data.Link;
@@ -24,13 +27,15 @@ const Award = () => {
           data,
         },
       };
+    } else {
+      dispatch({ type: "award", amount: data });
     }
     return { error: null, resumeData: { ...data } };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
-  console.log(formState.resumeData);
 
+  console.log(resume);
   return (
     <form action={formAction}>
       <Accordion className="form">

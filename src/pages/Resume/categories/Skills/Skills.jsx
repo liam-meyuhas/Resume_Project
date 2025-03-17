@@ -7,8 +7,11 @@ import "../categories.css";
 import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
+import { useDispatch } from "react-redux";
 
 const Skills = () => {
+  const dispatch = useDispatch();
+
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
 
@@ -21,12 +24,13 @@ const Skills = () => {
           data,
         },
       };
+    } else {
+      dispatch({ type: "skills", amount: data });
     }
     return { error: null, resumeData: { ...data } };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
-  console.log(formState.resumeData);
 
   return (
     <form action={formAction}>

@@ -7,8 +7,11 @@ import "../categories.css";
 import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
+import { useDispatch } from "react-redux";
 
 const Language = () => {
+  const dispatch = useDispatch();
+
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
 
@@ -21,6 +24,8 @@ const Language = () => {
           data,
         },
       };
+    } else {
+      dispatch({ type: "language", amount: data });
     }
     return { error: null, resumeData: { ...data } };
   };

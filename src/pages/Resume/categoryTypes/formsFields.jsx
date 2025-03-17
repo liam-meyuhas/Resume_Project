@@ -11,19 +11,19 @@ import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import PersonIcon from "@mui/icons-material/Person";
 
-import GeneralInformation from "../categories/GeneralInformation/GeneralInformation";
+import GeneralInformation from "../categories/generalInformation/GeneralInformation";
 import Award from "../categories/Award/Award";
 import Certificate from "../categories/Certificate/Certificate";
 import Experience from "../categories/Experience/Experience";
 import Education from "../categories/Education/Education";
 import Volunteer from "../categories/Volunteer/Volunteer";
-import Hobbies from "../categories/Hobbies/Hobies";
+import Hobbies from "../categories/Hobbies/Hobbies";
 import Publication from "../categories/Publication/Publication";
 import Language from "../categories/Language/Language";
 import MilitaryService from "../categories/MilitaryService/MilitaryService";
 import Projects from "../categories/Projects/Projects";
 import Skills from "../categories/Skills/Skills";
-import PersonalInformation from "../categories/PersonalInformation/PersonalInformation";
+import PersonalInformation from "../categories/personalInformation/PersonalInformation";
 
 export const FORMSFIELDS = [
   {
