@@ -26,7 +26,7 @@ const Experience = () => {
         },
       };
     } else {
-      dispatch({ type: "experience", amount: data });
+      dispatch({ type: "experience", payload: data });
     }
     return { error: null };
   };

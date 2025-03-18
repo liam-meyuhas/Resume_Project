@@ -26,7 +26,7 @@ const MilitaryService = () => {
         },
       };
     } else {
-      dispatch({ type: "militaryService", amount: data });
+      dispatch({ type: "militaryService", payload: data });
     }
     return { error: null };
   };

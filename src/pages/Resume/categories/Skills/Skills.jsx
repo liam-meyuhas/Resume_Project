@@ -25,7 +25,7 @@ const Skills = () => {
         },
       };
     } else {
-      dispatch({ type: "skills", amount: data });
+      dispatch({ type: "skills", payload: data });
     }
     return { error: null };
   };

@@ -24,7 +24,7 @@ const Hobbies = () => {
         },
       };
     } else {
-      dispatch({ type: "hobbies", amount: data });
+      dispatch({ type: "hobbies", payload: data });
     }
     return { error: null };
   };

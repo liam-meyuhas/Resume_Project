@@ -25,7 +25,7 @@ const Publication = () => {
         },
       };
     } else {
-      dispatch({ type: "publication", amount: data });
+      dispatch({ type: "publication", payload: data });
     }
     return { error: null };
   };

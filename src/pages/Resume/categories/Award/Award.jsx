@@ -6,6 +6,7 @@ import "../categories.css";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch, useSelector } from "react-redux";
+import { isLink } from "../../validation/validation";
 
 const Award = () => {
   const dispatch = useDispatch();
@@ -16,9 +17,7 @@ const Award = () => {
 
     let errors = [];
 
-    if (!Link.startsWith("http://") && !Link.startsWith("https://")) {
-      errors.push("The link must be includes first http://");
-    }
+    isLink(Link, errors);
 
     if (errors.length > 0) {
       return {
@@ -28,7 +27,7 @@ const Award = () => {
         },
       };
     } else {
-      dispatch({ type: "award", amount: data });
+      dispatch({ type: "award", payload: data });
     }
     return { error: null };
   };

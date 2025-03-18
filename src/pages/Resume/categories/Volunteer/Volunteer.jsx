@@ -26,7 +26,7 @@ const Volunteer = () => {
         },
       };
     } else {
-      dispatch({ type: "volunteer", amount: data });
+      dispatch({ type: "volunteer", payload: data });
     }
     return { error: null };
   };

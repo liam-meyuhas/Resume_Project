@@ -15,7 +15,6 @@ const Education = () => {
 
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
-    const Link = data.Link;
 
     let errors = [];
 
@@ -27,7 +26,7 @@ const Education = () => {
         },
       };
     } else {
-      dispatch({ type: "education", amount: data });
+      dispatch({ type: "education", payload: data });
     }
     return { error: null };
   };

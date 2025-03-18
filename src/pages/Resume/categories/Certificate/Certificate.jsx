@@ -8,6 +8,7 @@ import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
+import { isLink } from "../../validation/validation";
 
 const Certificate = () => {
   const dispatch = useDispatch();
@@ -17,6 +18,8 @@ const Certificate = () => {
 
     let errors = [];
 
+    isLink(Link, errors);
+
     if (errors.length > 0) {
       return {
         errors,
@@ -25,7 +28,7 @@ const Certificate = () => {
         },
       };
     } else {
-      dispatch({ type: "certificate", amount: data });
+      dispatch({ type: "certificate", payload: data });
     }
     return { error: null };
   };

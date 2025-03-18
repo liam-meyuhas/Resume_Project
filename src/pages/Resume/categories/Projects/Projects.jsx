@@ -26,7 +26,7 @@ const Projects = () => {
         },
       };
     } else {
-      dispatch({ type: "projects", amount: data });
+      dispatch({ type: "projects", payload: data });
     }
     return { error: null };
   };

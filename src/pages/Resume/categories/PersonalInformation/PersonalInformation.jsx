@@ -8,6 +8,7 @@ import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
+import { isMail } from "../../validation/validation";
 
 const PersonalInformation = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,7 @@ const PersonalInformation = () => {
 
     let errors = [];
 
-    if (!mail.includes("@")) {
-      errors.push("The email must contain '@'");
-    }
+    isMail(mail, errors);
 
     if (errors.length > 0) {
       return {
@@ -30,7 +29,7 @@ const PersonalInformation = () => {
         },
       };
     } else {
-      dispatch({ type: "personalInformation", amount: data });
+      dispatch({ type: "personalInformation", payload: data });
     }
     return { error: null };
   };

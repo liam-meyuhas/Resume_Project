@@ -23,7 +23,7 @@ const GeneralInformation = () => {
         },
       };
     } else {
-      dispatch({ type: "generalInformation", amount: data });
+      dispatch({ type: "generalInformation", payload: data });
     }
     return { error: null };
   };

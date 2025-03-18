@@ -22,7 +22,7 @@ const resumeDataReducer = (state = initialState, action) => {
     ...state,
     resume: {
       ...state.resume,
-      [action.type]: { ...action.amount },
+      [action.type]: { ...action.payload },
     },
   };
 };

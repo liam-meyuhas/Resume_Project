@@ -25,7 +25,7 @@ const Language = () => {
         },
       };
     } else {
-      dispatch({ type: "language", amount: data });
+      dispatch({ type: "language", payload: data });
     }
     return { error: null };
   };
