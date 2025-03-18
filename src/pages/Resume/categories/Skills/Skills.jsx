@@ -27,7 +27,7 @@ const Skills = () => {
     } else {
       dispatch({ type: "skills", amount: data });
     }
-    return { error: null, resumeData: { ...data } };
+    return { error: null };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });

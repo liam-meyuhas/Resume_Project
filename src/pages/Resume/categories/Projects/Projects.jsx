@@ -28,7 +28,7 @@ const Projects = () => {
     } else {
       dispatch({ type: "projects", amount: data });
     }
-    return { error: null, resumeData: { ...data } };
+    return { error: null };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });

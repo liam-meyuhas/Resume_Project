@@ -15,13 +15,8 @@ const Experience = () => {
 
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
-    const mail = data.mail;
 
     let errors = [];
-
-    if (!mail.includes("@")) {
-      errors.push("The email must contain '@'");
-    }
 
     if (errors.length > 0) {
       return {
@@ -33,7 +28,7 @@ const Experience = () => {
     } else {
       dispatch({ type: "experience", amount: data });
     }
-    return { error: null, resumeData: { ...data } };
+    return { error: null };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });

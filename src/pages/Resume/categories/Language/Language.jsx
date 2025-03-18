@@ -27,11 +27,10 @@ const Language = () => {
     } else {
       dispatch({ type: "language", amount: data });
     }
-    return { error: null, resumeData: { ...data } };
+    return { error: null };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
-  console.log(formState.resumeData);
 
   return (
     <form action={formAction}>

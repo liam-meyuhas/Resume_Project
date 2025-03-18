@@ -26,7 +26,7 @@ const Hobbies = () => {
     } else {
       dispatch({ type: "hobbies", amount: data });
     }
-    return { error: null, resumeData: { ...data } };
+    return { error: null };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
