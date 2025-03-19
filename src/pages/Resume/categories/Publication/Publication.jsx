@@ -25,7 +25,10 @@ const Publication = () => {
         },
       };
     } else {
-      dispatch({ type: "publication", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "publication", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

@@ -23,7 +23,10 @@ const GeneralInformation = () => {
         },
       };
     } else {
-      dispatch({ type: "generalInformation", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "generalInformation", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

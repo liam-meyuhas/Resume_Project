@@ -31,7 +31,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <SettingsIcon />,
       title: "מידע כללי",
-      id: "informattion",
+      id: "generalInformation",
       text: "פרט מידע כללי",
     },
   },
@@ -40,7 +40,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <PersonIcon />,
       title: "פרטים אישיים",
-      id: "personal-details",
+      id: "personalInfprmaion",
       text: "כתוב פרטים אישיים",
     },
   },
@@ -50,7 +50,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <BusinessCenterIcon />,
       title: "נסיון תעסוקתי",
-      id: "work-experience",
+      id: "experience",
       text: "כתוב את הרקע התעסוקתי שלך",
     },
   },
@@ -80,7 +80,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <MilitaryTechIcon />,
       title: "שירות צבאי",
-      id: "military-service",
+      id: "militaryService",
       text: "פרט שירות צבאי",
     },
   },
@@ -90,7 +90,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <MarkEmailReadIcon />,
       title: "הסמכות",
-      id: "authority",
+      id: "certificate",
       text: "פרט הסמגות",
     },
   },
@@ -100,7 +100,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <WorkspacePremiumIcon />,
       title: "פרסים",
-      id: "awards",
+      id: "award",
       text: "פרט פרסים",
     },
   },
@@ -120,7 +120,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <ArticleIcon />,
       title: "פרסומים",
-      id: "publications",
+      id: "publication",
       text: "פרט פרסומים",
     },
   },
@@ -129,7 +129,7 @@ export const FORMSFIELDS = [
     setting: {
       icon: <TranslateIcon />,
       title: "שפות",
-      id: "languages",
+      id: "language",
       text: "פרט שפות",
     },
   },

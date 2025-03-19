@@ -26,7 +26,10 @@ const Education = () => {
         },
       };
     } else {
-      dispatch({ type: "education", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "education", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

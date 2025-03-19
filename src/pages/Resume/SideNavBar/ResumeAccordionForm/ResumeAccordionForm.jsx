@@ -1,26 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { FORMSFIELDS } from "../../categoryTypes/formsFields";
 import { Accordion, AccordionSummary, Box, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "./resumeAccordionForm.css";
+import { useSelector, useDispatch } from "react-redux";
 
 const ResumeAccordionForm = () => {
-  // const [formsList, setFormsList] = useState([]);
-  // const addItem = (formId) => {
-  //   setFormsList((prevList) => {
-  //     let existingForm = prevList.find((item) => formId === item.id);
-  //     if (existingForm) {
-  //       return existingForm.map((item) =>
-  //         item.id === formId
-  //           ? { ...item, formsNumber: item.formsNumber + 1 }
-  //           : item
-  //       );
-  //     } else {
-  //       return [...prevList, { id: formId, formsNumber: 1 }];
-  //     }
-  //   });
-  // };
+  const resume = useSelector((state) => state.resume);
+  const dispatch = useDispatch();
+
+  const addItem = (formId) => {
+    dispatch({
+      type: "ADD",
+      payload: { formId: formId },
+    });
+  };
+
+  console.log(resume);
 
   return (
     <Box>
@@ -37,9 +34,16 @@ const ResumeAccordionForm = () => {
               </Typography>
             </AccordionSummary>
 
-            <Box className="internalAccordion">{form.form}</Box>
+            <Box className="internalAccordion">
+              {resume[form.setting.id] &&
+                resume[form.setting.id].map(
+                  (
+                    item //item.id => the id of the form
+                  ) => <Box key={item.id}>{form.form}</Box>
+                )}
+            </Box>
 
-            {/* <Button onClick={() => addItem(form.id)}>Liam</Button> */}
+            <Button onClick={() => addItem(form.setting.id)}>Liam</Button>
           </Accordion>
         </li>
       ))}

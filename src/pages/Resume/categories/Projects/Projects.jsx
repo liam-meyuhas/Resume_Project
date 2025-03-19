@@ -26,7 +26,10 @@ const Projects = () => {
         },
       };
     } else {
-      dispatch({ type: "projects", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "projects", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

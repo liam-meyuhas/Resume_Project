@@ -24,7 +24,10 @@ const Hobbies = () => {
         },
       };
     } else {
-      dispatch({ type: "hobbies", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "hobbies", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

@@ -26,7 +26,10 @@ const MilitaryService = () => {
         },
       };
     } else {
-      dispatch({ type: "militaryService", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "militaryService", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

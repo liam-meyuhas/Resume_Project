@@ -26,7 +26,10 @@ const Experience = () => {
         },
       };
     } else {
-      dispatch({ type: "experience", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "experience", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

@@ -15,7 +15,7 @@ const Certificate = () => {
 
   const sendResume = (prevState, formData) => {
     const data = Object.fromEntries(formData.entries());
-
+    const Link = data.Link;
     let errors = [];
 
     isLink(Link, errors);
@@ -28,7 +28,10 @@ const Certificate = () => {
         },
       };
     } else {
-      dispatch({ type: "certificate", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "certificate", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

@@ -27,7 +27,10 @@ const Award = () => {
         },
       };
     } else {
-      dispatch({ type: "award", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "award", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

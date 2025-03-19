@@ -25,7 +25,10 @@ const Skills = () => {
         },
       };
     } else {
-      dispatch({ type: "skills", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "skills", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

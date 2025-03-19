@@ -25,7 +25,10 @@ const Language = () => {
         },
       };
     } else {
-      dispatch({ type: "language", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "language", formNumber: 2, data },
+      });
     }
     return { error: null };
   };

@@ -29,7 +29,10 @@ const PersonalInformation = () => {
         },
       };
     } else {
-      dispatch({ type: "personalInformation", payload: data });
+      dispatch({
+        type: "UPDATE",
+        payload: { formId: "personalInformation", formNumber: 2, data },
+      });
     }
     return { error: null };
   };
