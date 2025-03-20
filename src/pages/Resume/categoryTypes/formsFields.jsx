@@ -32,7 +32,7 @@ export const FORMSFIELDS = [
       icon: <SettingsIcon />,
       title: "מידע כללי",
       id: "generalInformation",
-      text: "פרט מידע כללי",
+      text: "הוסף מידע כללי",
     },
   },
   {
@@ -41,7 +41,7 @@ export const FORMSFIELDS = [
       icon: <PersonIcon />,
       title: "פרטים אישיים",
       id: "personalInfprmaion",
-      text: "כתוב פרטים אישיים",
+      text: "הוסף פרטים אישיים",
     },
   },
   {
@@ -51,7 +51,7 @@ export const FORMSFIELDS = [
       icon: <BusinessCenterIcon />,
       title: "נסיון תעסוקתי",
       id: "experience",
-      text: "כתוב את הרקע התעסוקתי שלך",
+      text: "הוסף את הרקע התעסוקתי שלך",
     },
   },
   {
@@ -61,7 +61,7 @@ export const FORMSFIELDS = [
       icon: <SchoolIcon />,
       title: "השכלה",
       id: "education",
-      text: "פרט השכלתך",
+      text: "הוסף השכלה",
     },
   },
   {
@@ -71,7 +71,7 @@ export const FORMSFIELDS = [
       icon: <VolunteerActivismIcon />,
       title: "התנדבות",
       id: "volunteering",
-      text: "פרט התנדבותך",
+      text: "הוסף התנדבות",
     },
   },
   {
@@ -81,7 +81,7 @@ export const FORMSFIELDS = [
       icon: <MilitaryTechIcon />,
       title: "שירות צבאי",
       id: "militaryService",
-      text: "פרט שירות צבאי",
+      text: "הוסף שירות צבאי",
     },
   },
   {
@@ -91,7 +91,7 @@ export const FORMSFIELDS = [
       icon: <MarkEmailReadIcon />,
       title: "הסמכות",
       id: "certificate",
-      text: "פרט הסמגות",
+      text: "הוסף הסמכות",
     },
   },
   {
@@ -101,7 +101,7 @@ export const FORMSFIELDS = [
       icon: <WorkspacePremiumIcon />,
       title: "פרסים",
       id: "award",
-      text: "פרט פרסים",
+      text: "הוסף פרסים",
     },
   },
   {
@@ -121,7 +121,7 @@ export const FORMSFIELDS = [
       icon: <ArticleIcon />,
       title: "פרסומים",
       id: "publication",
-      text: "פרט פרסומים",
+      text: "הוסף פרסומים",
     },
   },
   {
@@ -130,7 +130,7 @@ export const FORMSFIELDS = [
       icon: <TranslateIcon />,
       title: "שפות",
       id: "language",
-      text: "פרט שפות",
+      text: "הוסף שפות",
     },
   },
   {
@@ -139,7 +139,7 @@ export const FORMSFIELDS = [
       icon: <FormatListNumberedIcon />,
       title: "כישורים",
       id: "skills",
-      text: "פרט כישורים",
+      text: "הוסף כישורים",
     },
   },
   {
@@ -148,7 +148,7 @@ export const FORMSFIELDS = [
       icon: <SportsEsportsIcon />,
       title: "תחביבים",
       id: "hobbies",
-      text: "פרט תחביבים",
+      text: "הוסף תחביבים",
     },
   },
 ];
