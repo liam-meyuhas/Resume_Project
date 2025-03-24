@@ -10,7 +10,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 
-const Projects = () => {
+const Projects = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -22,16 +22,21 @@ const Projects = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "projects", formNumber: 2, data },
+        payload: { formId: "projects", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -40,22 +45,37 @@ const Projects = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Projects" />
+          <FormHeader title="Projects" id={props.id} />
         </Box>
         <Box className="formFields">
           <Box>
             <Typography>תאריך התחלה</Typography>
-            <TextField type="date" name="startDate" required />
+            <TextField
+              type="date"
+              name="startDate"
+              required
+              defaultValue={formState.enteredValue?.startDate}
+            />
           </Box>
           <Box className="checkboxField">
             <Typography>תאריך סיום</Typography>
-            <TextField type="date" name="endDate" required />
+            <TextField
+              type="date"
+              name="endDate"
+              required
+              defaultValue={formState.enteredValue?.endDate}
+            />
             <Checkbox inputProps={{ "aria-label": "controlled" }} />
             <Typography>בתהליך</Typography>
           </Box>
           <Box>
             <Typography>שם</Typography>
-            <TextField type="text" name="name" required />
+            <TextField
+              type="text"
+              name="name"
+              required
+              defaultValue={formState.enteredValue?.name}
+            />
           </Box>
         </Box>
         <DisplayErrors formState={formState} />

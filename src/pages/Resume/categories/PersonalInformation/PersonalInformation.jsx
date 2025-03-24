@@ -10,7 +10,7 @@ import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 import { isMail } from "../../validation/validation";
 
-const PersonalInformation = () => {
+const PersonalInformation = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -25,16 +25,21 @@ const PersonalInformation = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "personalInformation", formNumber: 2, data },
+        payload: { formId: "personalInformation", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -43,24 +48,44 @@ const PersonalInformation = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Personal Information" />
+          <FormHeader title="Personal Information" id={props.id} />
         </Box>
         <Box className="formFields">
           <Box>
             <Typography>מייל</Typography>
-            <TextField type="mail" name="mail" required />
+            <TextField
+              type="mail"
+              name="mail"
+              required
+              defaultValue={formState.enteredValue?.mail}
+            />
           </Box>
           <Box>
             <Typography>כתובת</Typography>
-            <TextField type="text" name="address" required />
+            <TextField
+              type="text"
+              name="address"
+              required
+              defaultValue={formState.enteredValue?.address}
+            />
           </Box>
           <Box>
             <Typography>טלפון</Typography>
-            <TextField type="text" name="phone" required />
+            <TextField
+              type="text"
+              name="phone"
+              required
+              defaultValue={formState.enteredValue?.phone}
+            />
           </Box>
           <Box>
             <Typography>לינקדין</Typography>
-            <TextField type="text" name="Linkdin" required />
+            <TextField
+              type="text"
+              name="Linkdin"
+              required
+              defaultValue={formState.enteredValue?.Linkdin}
+            />
           </Box>
         </Box>
         <DisplayErrors formState={formState} />

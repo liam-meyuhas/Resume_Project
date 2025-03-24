@@ -1,0 +1,10 @@
+.skills-container {
+  border: 1px solid gray;
+  width: 100vh;
+}
+.skills-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}

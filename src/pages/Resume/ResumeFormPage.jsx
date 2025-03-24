@@ -1,30 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/joy/Box";
-import Button from "@mui/joy/Button";
-import Drawer from "@mui/joy/Drawer";
-import ModalClose from "@mui/joy/ModalClose";
 import ResumeAccordionForm from "./SideNavBar/ResumeAccordionForm/ResumeAccordionForm.jsx";
+import DownloadPdf from "../../components/DownLoadPdf/DownLoadPdf.jsx";
 
 export default function DrawerCloseButton() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-      <Button variant="outlined" color="neutral" onClick={() => setOpen(true)}>
-        Open drawer
-      </Button>
-      <Drawer
-        open={open}
-        size="md"
-        anchor="right"
-        onClose={() => setOpen(false)}
-      >
-        <Box sx={{ padding: "1rem" }}>
-          <ModalClose onClick={() => setOpen(false)} />
-
-          <ResumeAccordionForm />
-        </Box>
-      </Drawer>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        gap: 2,
+      }}
+    >
+      <Box sx={{ width: "40%" }}>
+        <ResumeAccordionForm />
+      </Box>
+      <Box sx={{ width: "60%" }}>
+        <DownloadPdf />
+      </Box>
     </Box>
   );
 }

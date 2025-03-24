@@ -1,0 +1,17 @@
+.resumeContainer {
+  direction: ltr;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lenguage-skills-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.resumeContainer h1 {
+  font-size: 3rem;
+  background-color: #f5f5f5;
+}

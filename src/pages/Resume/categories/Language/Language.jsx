@@ -9,7 +9,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 
-const Language = () => {
+const Language = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -21,16 +21,21 @@ const Language = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "language", formNumber: 2, data },
+        payload: { formId: "language", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -39,11 +44,16 @@ const Language = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Language" />
+          <FormHeader title="Language" id={props.id} />
         </Box>
         <Box>
           <Typography>שפות</Typography>
-          <TextField type="text" name="Language" required />
+          <TextField
+            type="text"
+            name="Language"
+            required
+            defaultValue={formState.enteredValue?.Language}
+          />
         </Box>
         <DisplayErrors formState={formState} />
         <SubmitButton />

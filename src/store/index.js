@@ -1,23 +1,5 @@
 import { createStore } from "redux";
 
-// const initialState = {
-//   resume: {
-//     generalInformation: {},
-//     personalInformation: {},
-//     experience: {},
-//     education: {},
-//     volunteer: {},
-//     militaryService: {},
-//     certificate: {},
-//     award: {},
-//     projects: {},
-//     publication: {},
-//     language: {},
-//     skills: {},
-//     hobbies: {},
-//   },
-// };
-
 const initialState = {
   resume: {
     generalInformation: [],

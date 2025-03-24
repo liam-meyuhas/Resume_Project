@@ -9,7 +9,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 
-const Skills = () => {
+const Skills = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -21,16 +21,21 @@ const Skills = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "skills", formNumber: 2, data },
+        payload: { formId: "skills", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -39,11 +44,16 @@ const Skills = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Skills" />
+          <FormHeader title="Skills" id={props.id} />
         </Box>
         <Box>
           <Typography>כישורים</Typography>
-          <TextField type="text" name="Skills" required />
+          <TextField
+            type="text"
+            name="Skills"
+            required
+            defaultValue={formState.enteredValue?.Skills}
+          />
         </Box>
         <DisplayErrors formState={formState} />
         <SubmitButton />

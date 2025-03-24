@@ -27,7 +27,7 @@ import PersonalInformation from "../categories/personalInformation/PersonalInfor
 
 export const FORMSFIELDS = [
   {
-    form: <GeneralInformation />,
+    form: GeneralInformation,
     setting: {
       icon: <SettingsIcon />,
       title: "מידע כללי",
@@ -36,17 +36,16 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <PersonalInformation />,
+    form: PersonalInformation,
     setting: {
       icon: <PersonIcon />,
       title: "פרטים אישיים",
-      id: "personalInfprmaion",
+      id: "personalInformation",
       text: "הוסף פרטים אישיים",
     },
   },
   {
-    form: <Experience />,
-
+    form: Experience,
     setting: {
       icon: <BusinessCenterIcon />,
       title: "נסיון תעסוקתי",
@@ -55,7 +54,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Education />,
+    form: Education,
 
     setting: {
       icon: <SchoolIcon />,
@@ -65,18 +64,17 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Volunteer />,
+    form: Volunteer,
 
     setting: {
       icon: <VolunteerActivismIcon />,
       title: "התנדבות",
-      id: "volunteering",
+      id: "volunteer",
       text: "הוסף התנדבות",
     },
   },
   {
-    form: <MilitaryService />,
-
+    form: MilitaryService,
     setting: {
       icon: <MilitaryTechIcon />,
       title: "שירות צבאי",
@@ -85,8 +83,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Certificate />,
-
+    form: Certificate,
     setting: {
       icon: <MarkEmailReadIcon />,
       title: "הסמכות",
@@ -95,8 +92,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Award />,
-
+    form: Award,
     setting: {
       icon: <WorkspacePremiumIcon />,
       title: "פרסים",
@@ -105,8 +101,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Projects />,
-
+    form: Projects,
     setting: {
       icon: <ArticleIcon />,
       title: "פרויקטים",
@@ -115,8 +110,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Publication />,
-
+    form: Publication,
     setting: {
       icon: <ArticleIcon />,
       title: "פרסומים",
@@ -125,7 +119,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Language />,
+    form: Language,
     setting: {
       icon: <TranslateIcon />,
       title: "שפות",
@@ -134,7 +128,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Skills />,
+    form: Skills,
     setting: {
       icon: <FormatListNumberedIcon />,
       title: "כישורים",
@@ -143,7 +137,7 @@ export const FORMSFIELDS = [
     },
   },
   {
-    form: <Hobbies />,
+    form: Hobbies,
     setting: {
       icon: <SportsEsportsIcon />,
       title: "תחביבים",

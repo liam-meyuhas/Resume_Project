@@ -32,7 +32,7 @@ const ResumeAccordionForm = () => {
   console.log(resume);
 
   return (
-    <Box>
+    <Box className="accordion-container">
       {FORMSFIELDS.map((form) => (
         <li style={{ listStyleType: "none" }} key={form.setting.id}>
           <Accordion>
@@ -48,10 +48,9 @@ const ResumeAccordionForm = () => {
 
             <Box className="internalAccordion">
               {resume[form.setting.id] &&
-                resume[form.setting.id].map(
-                  (
-                    item //item.id => the id of the form
-                  ) => (
+                resume[form.setting.id].map((item) => {
+                  const CategoryComponent = form.form;
+                  return (
                     <Box
                       sx={{
                         display: "flex",
@@ -61,7 +60,7 @@ const ResumeAccordionForm = () => {
                       }}
                       key={item.id}
                     >
-                      {form.form}
+                      <CategoryComponent id={item.id} />
 
                       <DeleteOutlineIcon
                         sx={{
@@ -71,8 +70,8 @@ const ResumeAccordionForm = () => {
                         onClick={() => removeItem(form.setting.id, item.id)}
                       />
                     </Box>
-                  )
-                )}
+                  );
+                })}
             </Box>
 
             <Chip

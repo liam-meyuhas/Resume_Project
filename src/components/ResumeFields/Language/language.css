@@ -1,0 +1,10 @@
+.language-container {
+  border: 1px solid gray;
+  width: 100vh;
+}
+.language-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}

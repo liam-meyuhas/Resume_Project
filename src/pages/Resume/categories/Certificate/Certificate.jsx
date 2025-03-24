@@ -10,7 +10,7 @@ import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 import { isLink } from "../../validation/validation";
 
-const Certificate = () => {
+const Certificate = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -24,16 +24,21 @@ const Certificate = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "certificate", formNumber: 2, data },
+        payload: { formId: "certificate", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -42,24 +47,44 @@ const Certificate = () => {
     <form action={formAction}>
       <Accordion className="Certificate">
         <Box>
-          <FormHeader title="Certificate" />
+          <FormHeader title="Certificate" id={props.id} />
         </Box>
         <Box className="formFields">
           <Box>
             <Typography>תאריך קבלה</Typography>
-            <TextField type="date" name="startDate" required />
+            <TextField
+              type="date"
+              name="startDate"
+              required
+              defaultValue={formState.enteredValue?.startDate}
+            />
           </Box>
           <Box>
             <Typography>שם הסמכה</Typography>
-            <TextField type="text" name="CertificationName" required />
+            <TextField
+              type="text"
+              name="CertificationName"
+              required
+              defaultValue={formState.enteredValue?.CertificationName}
+            />
           </Box>
           <Box>
             <Typography>מנפיק</Typography>
-            <TextField type="text" name="Issuer" required />
+            <TextField
+              type="text"
+              name="Issuer"
+              required
+              defaultValue={formState.enteredValue?.Issuer}
+            />
           </Box>
           <Box>
             <Typography>קישור (אתר או הסמכה)</Typography>
-            <TextField type="text" name="Link" required />
+            <TextField
+              type="text"
+              name="Link"
+              required
+              defaultValue={formState.enteredValue?.Link}
+            />
           </Box>
         </Box>
         <DisplayErrors formState={formState} />

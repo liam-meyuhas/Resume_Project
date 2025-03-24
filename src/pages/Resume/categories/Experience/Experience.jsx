@@ -10,7 +10,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 
-const Experience = () => {
+const Experience = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -22,16 +22,21 @@ const Experience = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "experience", formNumber: 2, data },
+        payload: { formId: "experience", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -40,30 +45,55 @@ const Experience = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Experience" />
+          <FormHeader title="Experience" id={props.id} />
         </Box>
         <Box className="formFields">
           <Box>
             <Typography>תאריך התחלה</Typography>
-            <TextField type="date" name="startDate" required />
+            <TextField
+              type="date"
+              name="startDate"
+              required
+              defaultValue={formState.enteredValue?.startDate}
+            />
           </Box>
           <Box className="checkboxField">
             <Typography>תאריך סיום</Typography>
-            <TextField type="date" name="endDate" required />
+            <TextField
+              type="date"
+              name="endDate"
+              required
+              defaultValue={formState.enteredValue?.endDate}
+            />
             <Checkbox inputProps={{ "aria-label": "controlled" }} />
             <Typography>עובד כאן כרגע</Typography>
           </Box>
           <Box>
             <Typography>תפקיד</Typography>
-            <TextField type="text" name="job" required />
+            <TextField
+              type="text"
+              name="job"
+              required
+              defaultValue={formState.enteredValue?.job}
+            />
           </Box>
           <Box>
             <Typography>שם חברה</Typography>
-            <TextField type="text" name="companyName" required />
+            <TextField
+              type="text"
+              name="companyName"
+              required
+              defaultValue={formState.enteredValue?.companyName}
+            />
           </Box>
           <Box>
             <Typography>מיקום חברה</Typography>
-            <TextField type="text" name="companyLocation" required />
+            <TextField
+              type="text"
+              name="companyLocation"
+              required
+              defaultValue={formState.enteredValue?.companyLocation}
+            />
           </Box>
         </Box>
         <DisplayErrors formState={formState} />

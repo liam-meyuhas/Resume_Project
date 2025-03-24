@@ -1,0 +1,19 @@
+.experience-container {
+  border: 1px solid gray;
+}
+
+.experience-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.experience-fields {
+  display: flex;
+  flex-direction: column;
+}
+.experience-fields div {
+  display: flex;
+  flex-direction: row;
+}

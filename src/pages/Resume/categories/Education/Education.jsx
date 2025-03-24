@@ -10,7 +10,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 
-const Education = () => {
+const Education = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -22,16 +22,21 @@ const Education = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "education", formNumber: 2, data },
+        payload: { formId: "education", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -40,30 +45,54 @@ const Education = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Education" />
+          <FormHeader title="Education" id={props.id} />
         </Box>
         <Box className="formFields">
           <Box>
             <Typography>תאריך התחלה</Typography>
-            <TextField type="date" name="startDate" required />
+            <TextField
+              type="date"
+              name="startDate"
+              required
+              defaultValue={formState.enteredValue?.startDate}
+            />
           </Box>
           <Box className="checkboxField">
             <Typography>תאריך סיום</Typography>
-            <TextField type="date" name="endDate" required />
+            <TextField
+              type="date"
+              name="endDate"
+              required
+              defaultValue={formState.enteredValue?.endDate}
+            />
             <Checkbox inputProps={{ "aria-label": "controlled" }} />
             <Typography>עובד כאן כרגע</Typography>
           </Box>
           <Box>
             <Typography>תואר</Typography>
-            <TextField type="text" name="Degree" required />
+            <TextField
+              type="text"
+              name="Degree"
+              required
+              defaultValue={formState.enteredValue?.Degree}
+            />
           </Box>
           <Box>
             <Typography>מוסד לימודים</Typography>
-            <TextField type="text" name="EducationalInstitution" required />
+            <TextField
+              type="text"
+              name="EducationalInstitution"
+              required
+              defaultValue={formState.enteredValue?.EducationalInstitution}
+            />
           </Box>
           <Box>
             <Typography>תחום לימוד(אופציונאלי)</Typography>
-            <TextField type="text" name="FieldStudy" />
+            <TextField
+              type="text"
+              name="FieldStudy"
+              defaultValue={formState.enteredValue?.FieldStudy}
+            />
           </Box>
         </Box>
         <DisplayErrors formState={formState} />

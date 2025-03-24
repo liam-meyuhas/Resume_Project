@@ -7,3 +7,17 @@
 .internalAccordion {
   max-width: 80%;
 }
+
+.accordion-container {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.accordion-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.accordion-container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 10px;
+}

@@ -9,7 +9,7 @@ import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import { useDispatch } from "react-redux";
 
-const Publication = () => {
+const Publication = (props) => {
   const dispatch = useDispatch();
 
   const sendResume = (prevState, formData) => {
@@ -21,16 +21,21 @@ const Publication = () => {
       return {
         errors,
         enteredValue: {
-          data,
+          ...data,
         },
       };
     } else {
       dispatch({
         type: "UPDATE",
-        payload: { formId: "publication", formNumber: 2, data },
+        payload: { formId: "publication", formNumber: props.id, data },
       });
     }
-    return { error: null };
+    return {
+      error: null,
+      enteredValue: {
+        ...data,
+      },
+    };
   };
 
   const [formState, formAction] = useActionState(sendResume, { errors: null });
@@ -39,11 +44,16 @@ const Publication = () => {
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Publication" />
+          <FormHeader title="Publication" id={props.id} />
         </Box>
         <Box>
           <Typography>פרסומים</Typography>
-          <TextField type="text" name="publication" required />
+          <TextField
+            type="text"
+            name="publication"
+            required
+            defaultValue={formState.enteredValue?.publication}
+          />
         </Box>
         <DisplayErrors formState={formState} />
         <SubmitButton />
