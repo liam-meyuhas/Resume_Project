@@ -11,24 +11,30 @@ const PersonalInformation = () => {
       <Box className="personal-information-fields-container">
         {personalInformationData &&
           personalInformationData.map((item) => (
-            <Box key={item} className="personal-information-fields">
-              <Box component="div">
-                <Typography sx={{ fontWeight: "bold" }}>מייל:</Typography>
-                <Typography>{item.resumeData?.mail}</Typography>
-              </Box>
-              <Box component="div">
-                <Typography sx={{ fontWeight: "bold" }}>כתובת:</Typography>
-                <Typography>{item.resumeData?.address}</Typography>
-              </Box>
-              <Box component="div">
-                <Typography sx={{ fontWeight: "bold" }}>טלפון:</Typography>
-                <Typography>{item.resumeData?.phone}</Typography>
-              </Box>
-              <Box component="div">
-                <Typography sx={{ fontWeight: "bold" }}>לינקדין:</Typography>
-                <Typography>{item.resumeData?.Linkdin}</Typography>
-              </Box>
-            </Box>
+            <>
+              {item.resumeData && (
+                <Box key={item.id} className="personal-information-fields">
+                  <Box component="div">
+                    <Typography sx={{ fontWeight: "bold" }}>מייל:</Typography>
+                    <Typography>{item.resumeData?.mail}</Typography>
+                  </Box>
+                  <Box component="div">
+                    <Typography sx={{ fontWeight: "bold" }}>כתובת:</Typography>
+                    <Typography>{item.resumeData?.address}</Typography>
+                  </Box>
+                  <Box component="div">
+                    <Typography sx={{ fontWeight: "bold" }}>טלפון:</Typography>
+                    <Typography>{item.resumeData?.phone}</Typography>
+                  </Box>
+                  <Box component="div">
+                    <Typography sx={{ fontWeight: "bold" }}>
+                      לינקדין:
+                    </Typography>
+                    <Typography>{item.resumeData?.Linkdin}</Typography>
+                  </Box>
+                </Box>
+              )}
+            </>
           ))}
       </Box>
     </Box>

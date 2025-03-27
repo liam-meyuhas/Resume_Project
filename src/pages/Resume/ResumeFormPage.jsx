@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/joy/Box";
 import ResumeAccordionForm from "./SideNavBar/ResumeAccordionForm/ResumeAccordionForm.jsx";
-import DownloadPdf from "../../components/DownLoadPdf/DownLoadPdf.jsx";
+import DownloadPdf from "../../components/DownloadPdf/DownloadPdf.jsx";
 
 export default function DrawerCloseButton() {
   return (

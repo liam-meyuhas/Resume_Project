@@ -1,0 +1,29 @@
+.certificate-container {
+  border: 1px solid gray;
+  direction: rtl;
+}
+
+.certificate-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.certificate-fields {
+  display: flex;
+  flex-direction: row;
+
+  gap: 1rem;
+}
+
+.certificate-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.certificate-link {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}

@@ -49,6 +49,8 @@ const DownloadPdf = () => {
           display: "flex",
           flexDirection: "column",
           width: "100%",
+          overflow: "auto",
+          maxHeight: "100vh",
         }}
       >
         <ResumeTemplate />

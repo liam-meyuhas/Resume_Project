@@ -1,0 +1,18 @@
+.volunteer-container {
+  border: 1px solid gray;
+  direction: rtl;
+}
+
+.volunteer-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.volunteer-fields {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}

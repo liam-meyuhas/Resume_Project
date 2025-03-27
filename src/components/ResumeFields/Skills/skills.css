@@ -1,6 +1,7 @@
 .skills-container {
   border: 1px solid gray;
   width: 100vh;
+  direction: rtl;
 }
 .skills-fields {
   display: flex;

@@ -1,5 +1,6 @@
 .education-container {
   border: 1px solid gray;
+  direction: rtl;
 }
 
 .education-fields-container {
@@ -17,4 +18,5 @@
 .education-fields div {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
 }

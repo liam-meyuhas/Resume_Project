@@ -12,7 +12,11 @@ const Skills = () => {
       <Box className="skills-fields">
         {skillsData &&
           skillsData.map((item) => (
-            <Box key={item}>{item.resumeData?.Skills}</Box>
+            <>
+              {item.resumeData && (
+                <Box key={item}>{item.resumeData?.Skills}</Box>
+              )}
+            </>
           ))}
       </Box>
     </Box>

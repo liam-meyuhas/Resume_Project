@@ -1,5 +1,6 @@
 .personal-information-container {
   border: 1px solid gray;
+  direction: rtl;
 }
 
 .personal-information-fields-container {
@@ -16,4 +17,5 @@
 .personal-information-fields div {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
 }

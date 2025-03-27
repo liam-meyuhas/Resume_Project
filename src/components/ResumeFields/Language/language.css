@@ -1,6 +1,7 @@
 .language-container {
   border: 1px solid gray;
   width: 100vh;
+  direction: rtl;
 }
 .language-fields {
   display: flex;

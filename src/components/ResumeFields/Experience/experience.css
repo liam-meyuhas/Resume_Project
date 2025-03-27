@@ -1,5 +1,6 @@
 .experience-container {
   border: 1px solid gray;
+  direction: rtl;
 }
 
 .experience-fields-container {
@@ -16,4 +17,5 @@
 .experience-fields div {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
 }
