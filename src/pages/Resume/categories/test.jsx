@@ -58,13 +58,13 @@ const test = (props) => {
         </Box>
         <Box className="formFields">
           {FIELDS.map((field) => (
-            <Box>
+            <Box key={field.title}>
               <Typography>{field.title}</Typography>
               <TextField
                 type={field.type}
                 name={field.name}
                 required
-                defaultValue={formState.enteredValue?.field.name}
+                defaultValue={formState.enteredValue?.[field.name]}
               />
             </Box>
           ))}

@@ -3,98 +3,41 @@ import "../categories.css";
 import { Accordion, Box, TextField, Typography } from "@mui/material";
 import FormHeader from "../../FormHeader/FormHeader";
 import "../categories.css";
-import Checkbox from "@mui/material/Checkbox";
 
-import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
-import { useDispatch } from "react-redux";
+import useSendFormData from "../useSendFormData";
+
+const FIELDS = [
+  { title: "תאריך התחלה", type: "date", name: "startDate" },
+  { title: "תאריך סיום", type: "date", name: "endDate" },
+  { title: "עובד כאן", type: "checkbox", name: "isWorkHere" },
+  { title: "תפקיד", type: "text", name: "job" },
+  { title: "שם חברה", type: "text", name: "companyName" },
+  { title: "מיקום חברה", type: "text", name: "companyLocation" },
+];
 
 const Experience = (props) => {
-  const dispatch = useDispatch();
-
-  const sendResume = (prevState, formData) => {
-    const data = Object.fromEntries(formData.entries());
-
-    let errors = [];
-
-    if (errors.length > 0) {
-      return {
-        errors,
-        enteredValue: {
-          ...data,
-        },
-      };
-    } else {
-      dispatch({
-        type: "UPDATE",
-        payload: { formId: "experience", formNumber: props.id, data },
-      });
-    }
-    return {
-      error: null,
-      enteredValue: {
-        ...data,
-      },
-    };
-  };
-
-  const [formState, formAction] = useActionState(sendResume, { errors: null });
+  const [formState, formAction] = useSendFormData(props.id, "experience");
 
   return (
     <form action={formAction}>
       <Accordion className="form">
         <Box>
-          <FormHeader title="Experience" id={props.id} />
+          <FormHeader title="Exerience" id={props.id} />
         </Box>
         <Box className="formFields">
-          <Box>
-            <Typography>תאריך התחלה</Typography>
-            <TextField
-              type="date"
-              name="startDate"
-              required
-              defaultValue={formState.enteredValue?.startDate}
-            />
-          </Box>
-          <Box className="checkboxField">
-            <Typography>תאריך סיום</Typography>
-            <TextField
-              type="date"
-              name="endDate"
-              required
-              defaultValue={formState.enteredValue?.endDate}
-            />
-            <Checkbox inputProps={{ "aria-label": "controlled" }} />
-            <Typography>עובד כאן כרגע</Typography>
-          </Box>
-          <Box>
-            <Typography>תפקיד</Typography>
-            <TextField
-              type="text"
-              name="job"
-              required
-              defaultValue={formState.enteredValue?.job}
-            />
-          </Box>
-          <Box>
-            <Typography>שם חברה</Typography>
-            <TextField
-              type="text"
-              name="companyName"
-              required
-              defaultValue={formState.enteredValue?.companyName}
-            />
-          </Box>
-          <Box>
-            <Typography>מיקום חברה</Typography>
-            <TextField
-              type="text"
-              name="companyLocation"
-              required
-              defaultValue={formState.enteredValue?.companyLocation}
-            />
-          </Box>
+          {FIELDS.map((field) => (
+            <Box key={field.title}>
+              <Typography>{field.title}</Typography>
+              <TextField
+                type={field.type}
+                name={field.name}
+                required
+                defaultValue={formState.enteredValue?.[field.name]}
+              />
+            </Box>
+          ))}
         </Box>
         <DisplayErrors formState={formState} />
         <SubmitButton />

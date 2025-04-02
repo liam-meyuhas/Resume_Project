@@ -3,46 +3,22 @@ import "../categories.css";
 import { Accordion, Box, TextField, Typography } from "@mui/material";
 import FormHeader from "../../FormHeader/FormHeader";
 import "../categories.css";
-
-import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
-import { useDispatch } from "react-redux";
-import { isMail } from "../../validation/validation";
+import useSendFormData from "../useSendFormData";
+
+const FIELDS = [
+  { title: "מייל", type: "text", name: "mail" },
+  { title: "כתובת", type: "text", name: "address" },
+  { title: "טלפון", type: "text", name: "phone" },
+  { title: "לינקדין", type: "text", name: "Linkdin" },
+];
 
 const PersonalInformation = (props) => {
-  const dispatch = useDispatch();
-
-  const sendResume = (prevState, formData) => {
-    const data = Object.fromEntries(formData.entries());
-    const mail = data.mail;
-
-    let errors = [];
-
-    isMail(mail, errors);
-
-    if (errors.length > 0) {
-      return {
-        errors,
-        enteredValue: {
-          ...data,
-        },
-      };
-    } else {
-      dispatch({
-        type: "UPDATE",
-        payload: { formId: "personalInformation", formNumber: props.id, data },
-      });
-    }
-    return {
-      error: null,
-      enteredValue: {
-        ...data,
-      },
-    };
-  };
-
-  const [formState, formAction] = useActionState(sendResume, { errors: null });
+  const [formState, formAction] = useSendFormData(
+    props.id,
+    "personalInformation"
+  );
 
   return (
     <form action={formAction}>
@@ -51,42 +27,17 @@ const PersonalInformation = (props) => {
           <FormHeader title="Personal Information" id={props.id} />
         </Box>
         <Box className="formFields">
-          <Box>
-            <Typography>מייל</Typography>
-            <TextField
-              type="mail"
-              name="mail"
-              required
-              defaultValue={formState.enteredValue?.mail}
-            />
-          </Box>
-          <Box>
-            <Typography>כתובת</Typography>
-            <TextField
-              type="text"
-              name="address"
-              required
-              defaultValue={formState.enteredValue?.address}
-            />
-          </Box>
-          <Box>
-            <Typography>טלפון</Typography>
-            <TextField
-              type="text"
-              name="phone"
-              required
-              defaultValue={formState.enteredValue?.phone}
-            />
-          </Box>
-          <Box>
-            <Typography>לינקדין</Typography>
-            <TextField
-              type="text"
-              name="Linkdin"
-              required
-              defaultValue={formState.enteredValue?.Linkdin}
-            />
-          </Box>
+          {FIELDS.map((field) => (
+            <Box key={field.title}>
+              <Typography>{field.title}</Typography>
+              <TextField
+                type={field.type}
+                name={field.name}
+                required
+                defaultValue={formState.enteredValue?.[field.name]}
+              />
+            </Box>
+          ))}
         </Box>
         <DisplayErrors formState={formState} />
         <SubmitButton />

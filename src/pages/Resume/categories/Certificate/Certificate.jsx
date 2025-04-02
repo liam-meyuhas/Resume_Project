@@ -3,89 +3,38 @@ import "../categories.css";
 import { Accordion, Box, TextField, Typography } from "@mui/material";
 import FormHeader from "../../FormHeader/FormHeader";
 import "../categories.css";
-
-import { useActionState } from "react";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
-import { useDispatch } from "react-redux";
-import { isLink } from "../../validation/validation";
+import useSendFormData from "../useSendFormData";
+
+const FIELDS = [
+  { title: "תאריך קבלה", type: "date", name: "startDate" },
+  { title: "שם הסמכה", type: "text", name: "certificationName" },
+  { title: "מנפיק", type: "text", name: "Issuer" },
+  { title: "קישור (אתר או הסמכה)", type: "text", name: "Link" },
+];
 
 const Certificate = (props) => {
-  const dispatch = useDispatch();
-
-  const sendResume = (prevState, formData) => {
-    const data = Object.fromEntries(formData.entries());
-    const Link = data.Link;
-    let errors = [];
-
-    isLink(Link, errors);
-
-    if (errors.length > 0) {
-      return {
-        errors,
-        enteredValue: {
-          ...data,
-        },
-      };
-    } else {
-      dispatch({
-        type: "UPDATE",
-        payload: { formId: "certificate", formNumber: props.id, data },
-      });
-    }
-    return {
-      error: null,
-      enteredValue: {
-        ...data,
-      },
-    };
-  };
-
-  const [formState, formAction] = useActionState(sendResume, { errors: null });
+  const [formState, formAction] = useSendFormData(props.id, "certificate");
 
   return (
     <form action={formAction}>
-      <Accordion className="Certificate">
+      <Accordion className="form">
         <Box>
           <FormHeader title="Certificate" id={props.id} />
         </Box>
         <Box className="formFields">
-          <Box>
-            <Typography>תאריך קבלה</Typography>
-            <TextField
-              type="date"
-              name="startDate"
-              required
-              defaultValue={formState.enteredValue?.startDate}
-            />
-          </Box>
-          <Box>
-            <Typography>שם הסמכה</Typography>
-            <TextField
-              type="text"
-              name="CertificationName"
-              required
-              defaultValue={formState.enteredValue?.CertificationName}
-            />
-          </Box>
-          <Box>
-            <Typography>מנפיק</Typography>
-            <TextField
-              type="text"
-              name="Issuer"
-              required
-              defaultValue={formState.enteredValue?.Issuer}
-            />
-          </Box>
-          <Box>
-            <Typography>קישור (אתר או הסמכה)</Typography>
-            <TextField
-              type="text"
-              name="Link"
-              required
-              defaultValue={formState.enteredValue?.Link}
-            />
-          </Box>
+          {FIELDS.map((field) => (
+            <Box key={field.title}>
+              <Typography>{field.title}</Typography>
+              <TextField
+                type={field.type}
+                name={field.name}
+                required
+                defaultValue={formState.enteredValue?.[field.name]}
+              />
+            </Box>
+          ))}
         </Box>
         <DisplayErrors formState={formState} />
         <SubmitButton />
