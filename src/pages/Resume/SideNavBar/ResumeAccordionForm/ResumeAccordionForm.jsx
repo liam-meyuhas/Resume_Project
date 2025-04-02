@@ -7,26 +7,21 @@ import "./resumeAccordionForm.css";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Chip from "@mui/material/Chip";
+import {
+  addResumeItem,
+  removeResumeItem,
+} from "../../../../store/resumeActions";
 
 const ResumeAccordionForm = () => {
   const resume = useSelector((state) => state.resume);
   const dispatch = useDispatch();
 
   const addItem = (formId) => {
-    dispatch({
-      type: "ADD",
-      payload: { formId: formId },
-    });
+    dispatch(addResumeItem(formId));
   };
 
   const removeItem = (formId, formNumber) => {
-    dispatch({
-      type: "REMOVE",
-      payload: {
-        formId: formId,
-        formNumber: formNumber,
-      },
-    });
+    dispatch(removeResumeItem(formId, formNumber));
   };
 
   console.log(resume);

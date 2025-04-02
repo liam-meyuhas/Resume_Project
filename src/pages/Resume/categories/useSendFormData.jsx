@@ -1,6 +1,7 @@
 import { useActionState } from "react";
 import { useDispatch } from "react-redux";
 import { isLink, isMail } from "../validation/validation";
+import { updateResumeItem } from "../../../store/resumeActions";
 
 const useSendFormData = (id, formName) => {
   const dispatch = useDispatch();
@@ -33,10 +34,7 @@ const useSendFormData = (id, formName) => {
         },
       };
     } else {
-      dispatch({
-        type: "UPDATE",
-        payload: { formId: formName, formNumber: id, data },
-      });
+      dispatch(updateResumeItem(formName, id, data));
     }
 
     return {

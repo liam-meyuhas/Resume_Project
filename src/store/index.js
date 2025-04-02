@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import { ADD, UPDATE, REMOVE } from "./resumeActionTypes.js";
 
 const initialState = {
   resume: {
@@ -22,7 +23,7 @@ const resumeDataReducer = (state = initialState, action) => {
   const { data, formId, formNumber } = action.payload || {};
 
   switch (action.type) {
-    case "ADD":
+    case ADD:
       return {
         ...state,
         resume: {
@@ -37,7 +38,7 @@ const resumeDataReducer = (state = initialState, action) => {
         },
       };
 
-    case "UPDATE":
+    case UPDATE:
       return {
         ...state,
         resume: {
@@ -48,7 +49,7 @@ const resumeDataReducer = (state = initialState, action) => {
         },
       };
 
-    case "REMOVE":
+    case REMOVE:
       let resumeData = [...state.resume[formId]];
       let updateResumeData = resumeData.filter(
         (item) => item.id !== formNumber
