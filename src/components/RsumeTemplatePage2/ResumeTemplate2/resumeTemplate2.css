@@ -1,0 +1,16 @@
+.template-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  border-radius: 12px;
+  border: 1px solid black;
+  height: 100vh;
+  overflow: hidden;
+  text-align: end;
+}
+
+.side-content {
+  width: 30%;
+  background: rgb(21, 21, 66);
+  color: rgb(189, 189, 24);
+}

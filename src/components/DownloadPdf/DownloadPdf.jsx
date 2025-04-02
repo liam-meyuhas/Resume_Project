@@ -2,6 +2,7 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import React, { useRef } from "react";
 import ResumeTemplate from "../ResumeTemplate/ResumeTemplate";
+import ResumeTemplatePage2 from "../RsumeTemplatePage2/ResumeTemplate2/ResumeTemplate2";
 
 const DownloadPdf = () => {
   const printRef = useRef(null);
@@ -54,6 +55,7 @@ const DownloadPdf = () => {
         }}
       >
         <ResumeTemplate />
+        {/* <ResumeTemplatePage2 /> */}
       </div>
 
       <button onClick={handleDownLoadPdf}>DownLoad</button>
