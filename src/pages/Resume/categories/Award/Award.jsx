@@ -1,4 +1,4 @@
-import React, { useActionState, useState } from "react";
+import React, { useActionState } from "react";
 import "../categories.css";
 import { Accordion, Box, TextField, Typography } from "@mui/material";
 import FormHeader from "../../FormHeader/FormHeader";

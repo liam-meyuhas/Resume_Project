@@ -12,9 +12,9 @@ const Education = () => {
       <Typography component="h1">השכלה</Typography>
       <Box className="education-fields-container">
         {educationData &&
-          educationData.map((item) => (
-            <>
-              {item.resumeData && (
+          educationData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="education-fields">
                   <Box component="div">
                     <Typography sx={{ fontWeight: "bold" }}>
@@ -49,9 +49,8 @@ const Education = () => {
                     </Box>
                   )}
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

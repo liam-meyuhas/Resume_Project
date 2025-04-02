@@ -13,12 +13,11 @@ const Award = () => {
       <Typography component="h1">פרסים</Typography>
       <Box className="awards-fields-container">
         {awardData &&
-          awardData.map((item) => (
-            <>
-              {item.resumeData && (
+          awardData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="awards-fields">
                   <Typography>{item.resumeData?.startDate}</Typography>
-
                   <Box className="awards-details">
                     <Box className="awards-link">
                       <Typography>{item.resumeData?.AwardName}</Typography>
@@ -31,9 +30,8 @@ const Award = () => {
                     <Typography>מנפיק: {item.resumeData?.Issuer}</Typography>
                   </Box>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

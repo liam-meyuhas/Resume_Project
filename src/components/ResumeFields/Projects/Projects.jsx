@@ -12,18 +12,17 @@ const Projects = () => {
       <Typography component="h1">פרויקטים</Typography>
       <Box className="projects-fields-container">
         {projectsData &&
-          projectsData.map((item) => (
-            <>
-              {item.resumeData && (
+          projectsData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="volunteer-fields">
                   <Typography>
                     {item.resumeData?.startDate}-{item.resumeData?.endDate}
                   </Typography>
                   <Typography>{item.resumeData?.name}</Typography>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

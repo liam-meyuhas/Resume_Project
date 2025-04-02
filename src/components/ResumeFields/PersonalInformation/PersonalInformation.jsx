@@ -10,9 +10,9 @@ const PersonalInformation = () => {
       <Typography component="h1">פרטים אישיים</Typography>
       <Box className="personal-information-fields-container">
         {personalInformationData &&
-          personalInformationData.map((item) => (
-            <>
-              {item.resumeData && (
+          personalInformationData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="personal-information-fields">
                   <Box component="div">
                     <Typography sx={{ fontWeight: "bold" }}>מייל:</Typography>
@@ -33,9 +33,8 @@ const PersonalInformation = () => {
                     <Typography>{item.resumeData?.Linkdin}</Typography>
                   </Box>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

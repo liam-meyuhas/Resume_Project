@@ -12,16 +12,15 @@ const GeneralInformation = () => {
       <Typography component="h1">מידע כללי</Typography>
       <Box className="general-information-fields">
         {generalInformationData &&
-          generalInformationData.map((item) => (
-            <>
-              {item.resumeData && (
+          generalInformationData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id}>
                   <Typography>{item.resumeData?.name}</Typography>
                   <Typography>{item.resumeData?.job}</Typography>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

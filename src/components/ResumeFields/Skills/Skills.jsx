@@ -11,13 +11,10 @@ const Skills = () => {
       <Typography component="h1">קישורים</Typography>
       <Box className="skills-fields">
         {skillsData &&
-          skillsData.map((item) => (
-            <>
-              {item.resumeData && (
-                <Box key={item}>{item.resumeData?.Skills}</Box>
-              )}
-            </>
-          ))}
+          skillsData.map(
+            (item) =>
+              item.resumeData && <Box key={item}>{item.resumeData?.Skills}</Box>
+          )}
       </Box>
     </Box>
   );

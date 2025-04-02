@@ -12,13 +12,12 @@ const Publication = () => {
       <Typography component="h1">פרסומים</Typography>
       <Box className="publication-fields">
         {publicationData &&
-          publicationData.map((item) => (
-            <>
-              {item.resumeData && (
+          publicationData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item}>{item.resumeData?.publication}</Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

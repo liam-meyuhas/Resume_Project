@@ -12,9 +12,9 @@ const MilitaryService = () => {
       <Typography component="h1">שירות צבאי</Typography>
       <Box className="military-service-fields-container">
         {militaryServiceData &&
-          militaryServiceData.map((item) => (
-            <>
-              {item.resumeData && (
+          militaryServiceData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="military-service-fields">
                   <Typography>
                     {item.resumeData?.startDate}-{item.resumeData?.endDate}
@@ -27,9 +27,8 @@ const MilitaryService = () => {
                     </Typography>
                   </Box>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

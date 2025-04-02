@@ -13,15 +13,14 @@ const Language = () => {
 
       <Box className="language-fields">
         {languageData &&
-          languageData.map((item) => (
-            <>
-              {item.resumeData && (
+          languageData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item}>
                   <Typography>{item.resumeData?.Language}</Typography>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

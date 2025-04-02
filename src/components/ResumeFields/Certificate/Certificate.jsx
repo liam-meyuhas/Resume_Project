@@ -13,9 +13,9 @@ const Certificate = () => {
       <Typography component="h1">הסמכות</Typography>
       <Box className="certificate-fields-container">
         {certificateData &&
-          certificateData.map((item) => (
-            <>
-              {item.resumeData && (
+          certificateData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="certificate-fields">
                   <Typography>{item.resumeData?.startDate}</Typography>
 
@@ -33,9 +33,8 @@ const Certificate = () => {
                     <Typography>מנפיק: {item.resumeData?.Issuer}</Typography>
                   </Box>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

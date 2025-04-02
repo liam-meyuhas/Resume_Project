@@ -11,9 +11,9 @@ const Experience = () => {
       <Typography component="h1">נסיון תעסוקתי</Typography>
       <Box className="experience-fields-container">
         {experienceData &&
-          experienceData.map((item) => (
-            <>
-              {item.resumeData && (
+          experienceData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id} className="experience-fields">
                   <Box component="div">
                     <Typography sx={{ fontWeight: "bold" }}>
@@ -44,9 +44,8 @@ const Experience = () => {
                     <Typography>{item.resumeData?.companyLocation}</Typography>
                   </Box>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );

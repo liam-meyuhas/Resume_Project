@@ -12,15 +12,14 @@ const Hobbies = () => {
       <Typography component="h1">תחביבים</Typography>
       <Box className="hobbies-fields">
         {hobbiesData &&
-          hobbiesData.map((item) => (
-            <>
-              {item.resumeData && (
+          hobbiesData.map(
+            (item) =>
+              item.resumeData && (
                 <Box key={item.id}>
                   <Typography>{item.resumeData?.Hobbies}</Typography>
                 </Box>
-              )}
-            </>
-          ))}
+              )
+          )}
       </Box>
     </Box>
   );
