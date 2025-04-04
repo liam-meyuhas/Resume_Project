@@ -54,8 +54,8 @@ const DownloadPdf = () => {
           maxHeight: "100vh",
         }}
       >
-        <ResumeTemplate />
-        {/* <ResumeTemplatePage2 /> */}
+        {/* <ResumeTemplate /> */}
+        <ResumeTemplatePage2 />
       </div>
 
       <button onClick={handleDownLoadPdf}>DownLoad</button>

@@ -1,0 +1,18 @@
+.templateContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.mainContent {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1rem;
+}
+
+.date {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  padding-left: 2rem;
+}
