@@ -6,7 +6,7 @@ import "./generalInformation.css";
 const GeneralInformation = () => {
   const resume = useSelector((state) => state.resume);
   const generalInformationData = resume["generalInformation"];
-  console.log(generalInformationData, 3);
+
   return (
     <Box className="general-information-container">
       <Typography component="h1">מידע כללי</Typography>

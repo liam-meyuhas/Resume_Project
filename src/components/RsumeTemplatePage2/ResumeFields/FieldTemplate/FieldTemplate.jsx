@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
 import classes from "./fieldTemplate.module.css";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
 
 const FieldTemplate = (props) => {
   return (
@@ -18,6 +20,16 @@ const FieldTemplate = (props) => {
           {props.startDate} - {props.endDate}
         </Typography>
         <Typography>{props.companyLocation}:</Typography>
+      </Box>
+      <Box className={classes.worker}>
+        <Typography> :עובד כאן</Typography>
+        <Typography>
+          {props.isWorkHere === "on" || props.isWorkHere === "true" ? (
+            <CheckBoxIcon className={classes.iconWork} />
+          ) : (
+            <CancelPresentationIcon className={classes.iconNotWorkHere} />
+          )}
+        </Typography>
       </Box>
     </Box>
   );

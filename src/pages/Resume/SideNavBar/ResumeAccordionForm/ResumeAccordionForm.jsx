@@ -24,8 +24,6 @@ const ResumeAccordionForm = () => {
     dispatch(removeResumeItem(formId, formNumber));
   };
 
-  console.log(resume);
-
   return (
     <Box className="accordion-container">
       {FORMSFIELDS.map((form) => (

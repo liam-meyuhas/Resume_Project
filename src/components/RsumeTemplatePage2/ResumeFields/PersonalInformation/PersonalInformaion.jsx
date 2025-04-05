@@ -11,7 +11,7 @@ const PersonalInformaion = () => {
   const personalInformationData = useSelector(
     (state) => state.resume["personalInformation"]
   );
-  console.log(personalInformationData);
+
   return (
     <div>
       {personalInformationData &&
@@ -19,6 +19,7 @@ const PersonalInformaion = () => {
           (item) =>
             item.resumeData && (
               <Box
+                key={item.id}
                 sx={{
                   display: "flex",
                   flexDirection: "column",

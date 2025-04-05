@@ -7,6 +7,7 @@ import "../categories.css";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import useSendFormData from "../useSendFormData";
+import InputManager from "../InputManager/InputManager";
 
 const FIELDS = [{ title: "כישורים", type: "text", name: "Skills" }];
 
@@ -23,7 +24,7 @@ const Skills = (props) => {
           {FIELDS.map((field) => (
             <Box key={field.title}>
               <Typography>{field.title}</Typography>
-              <TextField
+              <InputManager
                 type={field.type}
                 name={field.name}
                 required

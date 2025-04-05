@@ -15,7 +15,7 @@ const GeneralInformation = () => {
         generalInformationData.map(
           (item) =>
             item.resumeData && (
-              <Box className={classes.templateContainer}>
+              <Box key={item.id} className={classes.templateContainer}>
                 <Typography sx={{ fontSize: "3rem" }}>
                   {item.resumeData.name}
                 </Typography>

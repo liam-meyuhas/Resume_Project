@@ -13,7 +13,7 @@ const Publication = () => {
         publicationData.map(
           (item) =>
             item.resumeData && (
-              <Box className={classes.templateContainer}>
+              <Box key={item.id} className={classes.templateContainer}>
                 <Typography sx={{ marginBottom: "1rem", fontWeight: "bold" }}>
                   PUBLICATION
                 </Typography>

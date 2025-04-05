@@ -7,11 +7,18 @@ import "../categories.css";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import useSendFormData from "../useSendFormData";
+import InputManager from "../InputManager/InputManager";
 
-const FIELDS = [
+const FIELDS = (text) => [
   { title: "תאריך התחלה", type: "date", name: "startDate" },
   { title: "תאריך סיום", type: "date", name: "endDate" },
-  { title: "עובד כאן", type: "checkbox", name: "isWorkHere" },
+  {
+    title: "עובד כאן",
+    isChecked: text,
+    required: false,
+    type: "checkbox",
+    name: "isWorkHere",
+  },
   { title: "תפקיד", type: "text", name: "job" },
   { title: "שם חברה", type: "text", name: "companyName" },
   { title: "מיקום חברה", type: "text", name: "companyLocation" },
@@ -20,6 +27,9 @@ const FIELDS = [
 const Experience = (props) => {
   const [formState, formAction] = useSendFormData(props.id, "experience");
 
+  const [checked, setChecked] = React.useState(false);
+  const FIELDARR = FIELDS(checked);
+
   return (
     <form action={formAction}>
       <Accordion className="form">
@@ -27,14 +37,16 @@ const Experience = (props) => {
           <FormHeader title="Exerience" id={props.id} />
         </Box>
         <Box className="formFields">
-          {FIELDS.map((field) => (
+          {FIELDARR.map((field) => (
             <Box key={field.title}>
               <Typography>{field.title}</Typography>
-              <TextField
+              <InputManager
                 type={field.type}
                 name={field.name}
-                required
+                required={field.required === false ? field.required : true}
                 defaultValue={formState.enteredValue?.[field.name]}
+                checked={field.isChecked}
+                setChecked={setChecked}
               />
             </Box>
           ))}

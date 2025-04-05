@@ -5,7 +5,7 @@ import { updateResumeItem } from "../../../store/resumeActions";
 
 const useSendFormData = (id, formName) => {
   const dispatch = useDispatch();
-  const sendResume = (prevState, formData) => {
+  const sendResume = (_, formData) => {
     const data = Object.fromEntries(formData.entries());
 
     const Link = data?.Link;

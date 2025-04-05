@@ -1,22 +1,22 @@
-import { ADD, UPDATE, REMOVE } from "./resumeActionTypes.js";
+import { ACTIONS } from "./resumeActionTypes";
 
 export const addResumeItem = (formId) => {
   return {
-    type: ADD,
+    type: ACTIONS.ADD,
     payload: { formId },
   };
 };
 
 export const updateResumeItem = (formId, formNumber, data) => {
   return {
-    type: UPDATE,
+    type: ACTIONS.UPDATE,
     payload: { data, formId, formNumber },
   };
 };
 
 export const removeResumeItem = (formId, formNumber) => {
   return {
-    type: REMOVE,
+    type: ACTIONS.REMOVE,
     payload: { formId, formNumber },
   };
 };

@@ -3,22 +3,30 @@ import "../categories.css";
 import { Accordion, Box, TextField, Typography } from "@mui/material";
 import FormHeader from "../../FormHeader/FormHeader";
 import "../categories.css";
-import Checkbox from "@mui/material/Checkbox";
 
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import useSendFormData from "../useSendFormData";
+import InputManager from "../InputManager/InputManager";
 
-const FIELDS = [
+const FIELDS = (text) => [
   { title: "תאריך התחלה", type: "date", name: "startDate" },
   { title: "תאריך סיום", type: "date", name: "endDate" },
-  { title: "בתהליך", type: "checkbox", name: "IsWorkHere" },
+  {
+    title: "עובד כאן",
+    isChecked: text,
+    required: false,
+    type: "checkbox",
+    name: "isWorkHere",
+  },
   { title: "שם", type: "text", name: "name" },
 ];
 
 const Projects = (props) => {
   const [formState, formAction] = useSendFormData(props.id, "projects");
 
+  const [checked, setChecked] = React.useState(false);
+  const FIELDARR = FIELDS(checked);
   return (
     <form action={formAction}>
       <Accordion className="form">
@@ -26,14 +34,16 @@ const Projects = (props) => {
           <FormHeader title="Projects" id={props.id} />
         </Box>
         <Box className="formFields">
-          {FIELDS.map((field) => (
+          {FIELDARR.map((field) => (
             <Box key={field.title}>
               <Typography>{field.title}</Typography>
-              <TextField
+              <InputManager
                 type={field.type}
                 name={field.name}
-                required
+                required={field.required === false ? field.required : true}
                 defaultValue={formState.enteredValue?.[field.name]}
+                checked={field.isChecked}
+                setChecked={setChecked}
               />
             </Box>
           ))}

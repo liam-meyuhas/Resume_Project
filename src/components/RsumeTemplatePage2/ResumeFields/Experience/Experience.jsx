@@ -5,7 +5,7 @@ import BusinessIcon from "@mui/icons-material/Business";
 
 const Experience = () => {
   const experienceData = useSelector((state) => state.resume["experience"]);
-  console.log(experienceData);
+
   return (
     <div>
       {experienceData &&

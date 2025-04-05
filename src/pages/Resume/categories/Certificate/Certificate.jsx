@@ -6,6 +6,7 @@ import "../categories.css";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import useSendFormData from "../useSendFormData";
+import InputManager from "../InputManager/InputManager";
 
 const FIELDS = [
   { title: "תאריך קבלה", type: "date", name: "startDate" },
@@ -27,10 +28,10 @@ const Certificate = (props) => {
           {FIELDS.map((field) => (
             <Box key={field.title}>
               <Typography>{field.title}</Typography>
-              <TextField
+              <InputManager
                 type={field.type}
                 name={field.name}
-                required
+                required={field.required === false ? field.required : true}
                 defaultValue={formState.enteredValue?.[field.name]}
               />
             </Box>

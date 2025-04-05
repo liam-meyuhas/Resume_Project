@@ -16,3 +16,17 @@
   gap: 0.5rem;
   padding-left: 2rem;
 }
+
+.worker {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+}
+
+.iconWork {
+  color: green;
+}
+
+.iconNotWorkHere {
+  color: red;
+}

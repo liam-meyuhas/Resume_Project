@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import { Box, Typography } from "@mui/material";
 import classes from "../FieldTemplate/fieldTemplate.module.css";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
+import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
 
 const Education = () => {
   const educationData = useSelector((state) => state.resume["education"]);
@@ -13,7 +15,7 @@ const Education = () => {
         educationData.map(
           (item) =>
             item.resumeData && (
-              <Box className={classes.templateContainer}>
+              <Box key={item.id} className={classes.templateContainer}>
                 <Typography sx={{ marginBottom: "1rem", fontWeight: "bold" }}>
                   EDUCATION
                 </Typography>
@@ -32,6 +34,19 @@ const Education = () => {
                 <Box className={classes.date}>
                   <Typography>
                     תחום לימוד: {item.resumeData.FieldStudy}
+                  </Typography>
+                </Box>
+                <Box className={classes.worker}>
+                  <Typography> :עובד כאן</Typography>
+                  <Typography>
+                    {item.resumeData.isWorkHere === "on" ||
+                    item.resumeData.isWorkHere === "true" ? (
+                      <CheckBoxIcon className={classes.iconWork} />
+                    ) : (
+                      <CancelPresentationIcon
+                        className={classes.iconNotWorkHere}
+                      />
+                    )}
                   </Typography>
                 </Box>
               </Box>

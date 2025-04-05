@@ -7,6 +7,7 @@ import "../categories.css";
 import SubmitButton from "../../SubmitButton/SubmitButton";
 import DisplayErrors from "../../DisplayErrors/DisplayErrors";
 import useSendFormData from "../useSendFormData";
+import InputManager from "../InputManager/InputManager";
 
 const FIELDS = [{ title: "שפות", type: "text", name: "Language" }];
 const Language = (props) => {
@@ -22,7 +23,7 @@ const Language = (props) => {
           {FIELDS.map((field) => (
             <Box key={field.title}>
               <Typography>{field.title}</Typography>
-              <TextField
+              <InputManager
                 type={field.type}
                 name={field.name}
                 required
