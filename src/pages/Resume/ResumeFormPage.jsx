@@ -10,7 +10,8 @@ export default function DrawerCloseButton() {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        gap: 2,
+        gap: "1rem",
+        padding: "1rem",
       }}
     >
       <Box sx={{ width: "40%" }}>

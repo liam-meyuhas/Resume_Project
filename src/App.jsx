@@ -3,12 +3,10 @@ import Home from "./pages/Home/Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ResumeFormPage from "./pages/Resume/ResumeFormPage.jsx";
 import Root from "./pages/Root/Root.jsx";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import ModeContextProvider from "./context/ModeContext/ModeContextProvider.jsx";
+import PaletteContextProvider from "./context/PaletteContext/PaletteContextProvider.jsx";
 
-// const theme = () =>
-//   createTheme({
-//     direction: "rtl",
-//   });
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,9 +19,12 @@ const router = createBrowserRouter([
 ]);
 const App = () => {
   return (
-    // <ThemeProvider theme={theme}>
-    <RouterProvider router={router} />
-    // </ThemeProvider>
+    <ModeContextProvider>
+      <CssBaseline />
+      <PaletteContextProvider>
+        <RouterProvider router={router} />
+      </PaletteContextProvider>
+    </ModeContextProvider>
   );
 };
 

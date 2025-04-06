@@ -1,10 +1,10 @@
 .linksRoot {
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  justify-items: center;
+  align-items: center;
+  padding: 1rem;
   list-style-type: none;
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .linksRoot a {

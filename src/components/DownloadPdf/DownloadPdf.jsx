@@ -37,6 +37,7 @@ const DownloadPdf = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        maxHeight: "100vh",
         border: "5px solid gray",
         borderRadius: "10px",
         boxShadow: " 0 2px 8px rgba(0, 0, 0, 0.25)",

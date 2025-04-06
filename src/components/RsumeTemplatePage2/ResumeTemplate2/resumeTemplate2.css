@@ -7,11 +7,36 @@
   height: 100vh;
   overflow: hidden;
   text-align: end;
-  overflow-y: scroll;
 }
 
 .side-content {
   width: 30%;
+}
+.side-content.orange {
+  background-color: orange;
+  color: white;
+}
+.side-content.red {
+  background-color: #ef5350;
+  color: white;
+}
+.side-content.blue {
   background: rgb(21, 21, 66);
   color: rgb(189, 189, 24);
+}
+.side-content.black {
+  background-color: #212121;
+  color: white;
+}
+.side-content.yellow {
+  background-color: #fff176;
+  color: black;
+}
+.side-content.pink {
+  background-color: #f48fb1;
+  color: black;
+}
+.side-content.green {
+  background-color: #66bb6a;
+  color: white;
 }

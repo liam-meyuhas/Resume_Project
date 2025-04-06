@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  background-color: rgb(193, 212, 241);
+}
+
+.appExplain {
+  max-width: 20rem;
+  margin: auto;
+  text-align: center;
+}
+
+.homeContainer img {
+  margin: auto;
+  max-width: 50rem;
+}

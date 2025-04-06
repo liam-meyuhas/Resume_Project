@@ -8,7 +8,6 @@ const MyButton = ({ onClick, children, ...props }) => {
       display="flex"
       justifyContent={props?.placeY}
       alignItems={props?.placeX}
-      height="100vh"
     >
       <Button onClick={onClick} variant="contained">
         {children}

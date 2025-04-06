@@ -1,0 +1,34 @@
+.colorContainer {
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 12px;
+  border: 1px solid rgb(231, 212, 212);
+  cursor: pointer;
+  font-size: 2rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.colorContainer.red {
+  color: red;
+}
+.colorContainer.blue {
+  color: blue;
+}
+.colorContainer.green {
+  color: green;
+}
+.colorContainer.yellow {
+  color: yellow;
+}
+.colorContainer.orange {
+  color: orange;
+}
+.colorContainer.black {
+  color: black;
+}
+.colorContainer.pink {
+  color: pink;
+}

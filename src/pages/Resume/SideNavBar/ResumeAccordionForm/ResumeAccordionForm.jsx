@@ -11,6 +11,7 @@ import {
   addResumeItem,
   removeResumeItem,
 } from "../../../../store/resumeActions";
+import GeneralSettings from "../../categories/GeneralSettings/GeneralSettings";
 
 const ResumeAccordionForm = () => {
   const resume = useSelector((state) => state.resume);
@@ -26,6 +27,7 @@ const ResumeAccordionForm = () => {
 
   return (
     <Box className="accordion-container">
+      <GeneralSettings />
       {FORMSFIELDS.map((form) => (
         <li style={{ listStyleType: "none" }} key={form.setting.id}>
           <Accordion>

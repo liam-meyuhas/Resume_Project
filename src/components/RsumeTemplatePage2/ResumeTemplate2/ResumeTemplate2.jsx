@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import "./resumeTemplate2.css";
 import Skills from "../ResumeFields/Skills/Skills";
 import Language from "../ResumeFields/Language/Language";
@@ -13,8 +13,10 @@ import Publication from "../ResumeFields/Publication/Publication";
 import Volunteer from "../ResumeFields/Volunteer/Volunteer";
 import PersonalInformaion from "../ResumeFields/PersonalInformation/PersonalInformaion";
 import GeneralInformation from "../ResumeFields/GeneralInformation/GeneralInformation";
+import PaletteContext from "../../../context/PaletteContext/PaletteContext";
 
 const ResumeTemplate2 = () => {
+  const { currentColor } = useContext(PaletteContext);
   return (
     <Box className="template-container">
       <Box className="midel-content">
@@ -27,7 +29,7 @@ const ResumeTemplate2 = () => {
         <Projects />
         <Publication />
       </Box>
-      <Box className="side-content">
+      <Box className={`side-content ${currentColor}`}>
         <Skills />
         <Language />
         <Certificate />

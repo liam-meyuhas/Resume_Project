@@ -1,0 +1,39 @@
+.colorsButton {
+  width: 2rem;
+  background-color: white;
+  border: 1px solid rgb(231, 212, 212);
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  height: 6rem;
+  border: 1px solid rgb(231, 212, 212);
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.mainContent {
+  background-color: rgb(235, 227, 227);
+  width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  overflow-x: scroll;
+  transition: width 0.3s ease-in-out;
+  margin: 0.5rem;
+}
+.open {
+  width: 17rem;
+  transition: width 0.2s ease-in;
+}
+
+.currentColor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 1rem;
+}

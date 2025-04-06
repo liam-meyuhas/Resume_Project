@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background-color: #333;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.images img {
+  margin: auto;
+  max-width: 12rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: auto;
+  color: white;
+}
