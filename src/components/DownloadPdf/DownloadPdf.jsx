@@ -7,8 +7,8 @@ import classes from "./downLoad.module.css";
 import { Box, Button } from "@mui/material";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { CgTemplate } from "react-icons/cg";
 import PaletteContext from "../../context/PaletteContext/PaletteContext";
+import Tour from "../../Toturial/Tour";
 
 const DownloadPdf = () => {
   const printRef = useRef(null);
@@ -38,22 +38,15 @@ const DownloadPdf = () => {
     pdf.save("exsamplepdf.pdf");
   };
 
-  const navigate = useNavigate();
-  const handleRoute = () => {
-    navigate("/templates");
-  };
-
   const { template } = useContext(PaletteContext);
 
   return (
     <Box className={classes["downLoad-container"]}>
-      <Box className={classes.buttons}>
-        <Button onClick={handleDownLoadPdf}>
+      <Box className={`${classes.buttons} four-step`}>
+        <Button onClick={handleDownLoadPdf} className="download-button">
           <MdOutlineFileDownload />
         </Button>
-        <Button onClick={handleRoute}>
-          בחר תבנית <CgTemplate />
-        </Button>
+        <Tour />
       </Box>
 
       <div
@@ -65,6 +58,7 @@ const DownloadPdf = () => {
           overflow: "auto",
           maxHeight: "100vh",
         }}
+        className="resume-data"
       >
         {template === "resumeTemplate1" ? (
           <ResumeTemplate />

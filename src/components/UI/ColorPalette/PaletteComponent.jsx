@@ -10,7 +10,7 @@ const PaletteComponent = () => {
     useContext(PaletteContext);
 
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container}`}>
       <div className={classes.currentColor}>
         <ColorComponent color={currentColor} />
       </div>

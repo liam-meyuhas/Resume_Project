@@ -1,0 +1,18 @@
+.dialog-style {
+  border-radius: 12px;
+}
+
+.dialog-style button {
+  border-radius: 20px;
+}
+
+.button {
+  background-color: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}

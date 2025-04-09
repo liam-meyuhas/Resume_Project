@@ -14,7 +14,7 @@ const Hobbies = () => {
           hobbiesResumeData.map(
             (hobbies) =>
               hobbies.resumeData && (
-                <Typography key={language.id}>
+                <Typography key={hobbies.id}>
                   {hobbies.resumeData?.Hobbies}
                 </Typography>
               )
