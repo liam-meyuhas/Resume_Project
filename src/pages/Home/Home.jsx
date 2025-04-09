@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/joy";
 import classes from "./home.module.css";
 import UIResume from "./UIResume";
-import ContectPage from "./ContectPage";
+import ContentPage from "./ContentPage";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const Home = () => {
         />
       </Box>
       <UIResume />
-      <ContectPage />
+      <ContentPage />
     </>
   );
 };

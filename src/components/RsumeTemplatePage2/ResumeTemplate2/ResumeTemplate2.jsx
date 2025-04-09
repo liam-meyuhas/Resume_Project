@@ -14,6 +14,7 @@ import Volunteer from "../ResumeFields/Volunteer/Volunteer";
 import PersonalInformaion from "../ResumeFields/PersonalInformation/PersonalInformaion";
 import GeneralInformation from "../ResumeFields/GeneralInformation/GeneralInformation";
 import PaletteContext from "../../../context/PaletteContext/PaletteContext";
+import Award from "../ResumeFields/Award/Award";
 
 const ResumeTemplate2 = () => {
   const { currentColor } = useContext(PaletteContext);
@@ -25,6 +26,7 @@ const ResumeTemplate2 = () => {
         <Experience />
         <Education />
         <Volunteer />
+        <Award />
         <MilitaryService />
         <Projects />
         <Publication />

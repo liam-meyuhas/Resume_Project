@@ -1,8 +1,14 @@
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import ResumeTemplate from "../ResumeTemplate/ResumeTemplate";
 import ResumeTemplatePage2 from "../RsumeTemplatePage2/ResumeTemplate2/ResumeTemplate2";
+import classes from "./downLoad.module.css";
+import { Box, Button } from "@mui/material";
+import { MdOutlineFileDownload } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
+import { CgTemplate } from "react-icons/cg";
+import PaletteContext from "../../context/PaletteContext/PaletteContext";
 
 const DownloadPdf = () => {
   const printRef = useRef(null);
@@ -31,20 +37,25 @@ const DownloadPdf = () => {
     pdf.addImage(data, "PNG", 0, 0, pdfWidth, pdfHeight);
     pdf.save("exsamplepdf.pdf");
   };
+
+  const navigate = useNavigate();
+  const handleRoute = () => {
+    navigate("/templates");
+  };
+
+  const { template } = useContext(PaletteContext);
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        maxHeight: "100vh",
-        border: "5px solid gray",
-        borderRadius: "10px",
-        boxShadow: " 0 2px 8px rgba(0, 0, 0, 0.25)",
-        padding: "0.5rem",
-        backgroundColor: "rgba(228, 204, 204, 0.25)",
-      }}
-    >
+    <Box className={classes["downLoad-container"]}>
+      <Box className={classes.buttons}>
+        <Button onClick={handleDownLoadPdf}>
+          <MdOutlineFileDownload />
+        </Button>
+        <Button onClick={handleRoute}>
+          בחר תבנית <CgTemplate />
+        </Button>
+      </Box>
+
       <div
         ref={printRef}
         style={{
@@ -55,12 +66,13 @@ const DownloadPdf = () => {
           maxHeight: "100vh",
         }}
       >
-        {/* <ResumeTemplate /> */}
-        <ResumeTemplatePage2 />
+        {template === "resumeTemplate1" ? (
+          <ResumeTemplate />
+        ) : (
+          <ResumeTemplatePage2 />
+        )}
       </div>
-
-      <button onClick={handleDownLoadPdf}>DownLoad</button>
-    </div>
+    </Box>
   );
 };
 

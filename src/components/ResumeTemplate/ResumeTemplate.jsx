@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import "./resumeTemplate.css";
 import PersonalInformation from "../ResumeFields/PersonalInformation/PersonalInformation";
 import Experience from "../ResumeFields/Experience/Experience";
@@ -14,10 +14,12 @@ import Award from "../ResumeFields/Award/Award";
 import Projects from "../ResumeFields/Projects/Projects";
 import Publication from "../ResumeFields/Publication/Publication";
 import Hobbies from "../ResumeFields/Hobbies/Hobbies";
+import PaletteContext from "../../context/PaletteContext/PaletteContext";
 
 const ResumeTemplate = () => {
+  const { currentColor } = useContext(PaletteContext);
   return (
-    <Box className="resumeContainer">
+    <Box className={`resumeContainer ${currentColor}`}>
       <GeneralInformation />
       <PersonalInformation />
       <Experience />

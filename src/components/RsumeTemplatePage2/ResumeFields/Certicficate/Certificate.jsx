@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Link, Typography } from "@mui/material";
 import "../resumeFields.css";
 import { useSelector } from "react-redux";
-import LinkIcon from "@mui/icons-material/Link";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 
 const Certificate = () => {

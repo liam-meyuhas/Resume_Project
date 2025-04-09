@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PaletteContext from "./PaletteContext";
 
 const initialColors = ["red", "green", "orange", "yellow", "black", "pink"];
 
 const PaletteContextProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [colors, setColors] = React.useState(initialColors);
-  const [currentColor, setCurrentColor] = React.useState("blue");
+  const [template, setTemplate] = useState("resumeTemplate2");
+  const [isOpen, setIsOpen] = useState(false);
+  const [colors, setColors] = useState(initialColors);
+  const [currentColor, setCurrentColor] = useState("blue");
   const clickHandler = () => {
     setIsOpen((prev) => !prev);
   };
@@ -18,7 +19,20 @@ const PaletteContextProvider = ({ children }) => {
     });
     setCurrentColor(color);
   };
-  const ctx = { isOpen, clickHandler, change, colors, currentColor };
+
+  const handleSelect = (resumeTemplate, navigate) => {
+    setTemplate(resumeTemplate);
+    navigate("/resume");
+  };
+  const ctx = {
+    isOpen,
+    clickHandler,
+    change,
+    colors,
+    currentColor,
+    template,
+    handleSelect,
+  };
   return (
     <PaletteContext.Provider value={ctx}>{children}</PaletteContext.Provider>
   );
