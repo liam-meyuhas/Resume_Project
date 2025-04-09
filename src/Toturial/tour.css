@@ -1,9 +1,40 @@
 .dialog-style {
   border-radius: 12px;
+  margin: 2rem;
 }
 
-.dialog-style button {
+.dialog-style .btn-outline {
+  background-color: transparent;
+  color: black;
+  padding: 10px 20px;
+  border: 1px solid rgb(214, 207, 207);
   border-radius: 20px;
+  font-weight: bold;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dialog-style .btn-outline:hover {
+  border: 1px solid #1f7aaf;
+  background-color: white;
+  color: #3c8edb;
+}
+
+.dialog-style .btn-filled {
+  background-color: #3c8edb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dialog-style .btn-filled:hover {
+  background-color: #2a82b4;
 }
 
 .button {

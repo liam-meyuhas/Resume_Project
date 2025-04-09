@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import React, { useContext } from "react";
 import "./resumeTemplate2.css";
 import Skills from "../ResumeFields/Skills/Skills";
@@ -17,6 +17,7 @@ import PaletteContext from "../../../context/PaletteContext/PaletteContext";
 import Award from "../ResumeFields/Award/Award";
 
 const ResumeTemplate2 = () => {
+  console.log(useTheme());
   const { currentColor } = useContext(PaletteContext);
   return (
     <Box className="template-container">

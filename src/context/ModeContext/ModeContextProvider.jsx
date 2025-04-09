@@ -6,21 +6,25 @@ const theme = (mode) =>
   createTheme({
     palette: {
       mode: mode ? "dark" : "light",
+      background: {
+        default: mode ? "#333" : "#f5f5f5",
+        paper: mode ? "#rgba(104, 89, 89, 0.25)" : "#f5f5f5",
+      },
     },
   });
 
 const ModeContextProvider = ({ children }) => {
-  const [toggelMode, setToggelMode] = useState(false);
+  const [toggleMode, setToggleMode] = useState(false);
 
   const changeMode = () => {
-    setToggelMode((prev) => !prev);
+    setToggleMode((prev) => !prev);
   };
 
-  const themeMode = theme(toggelMode);
+  const themeMode = theme(toggleMode);
 
   const ctx = {
     changeMode: changeMode,
-    toggelMode: toggelMode,
+    toggleMode: toggleMode,
   };
   return (
     <ModeContext.Provider value={ctx}>

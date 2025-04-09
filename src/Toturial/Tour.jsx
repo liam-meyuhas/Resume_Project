@@ -21,78 +21,100 @@ const Tour = () => {
     const steps = [
       {
         id: "step-1",
-        text: `זקוק לעזרה?
-            האם תרצה סיור מהיר על איך לעבוד עם המערכת?`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">זקוק לעזרה?</h3>
+            <p style="margin: 0;">האם תרצה סיור מהיר על איך לעבוד עם המערכת?</p>
+          </div>
+        `,
         attachTo: { element: ".first-step", on: "bottom" },
         buttons: [
-          { text: "כן", action: tour.next },
-          { text: "סבבה לי", action: tour.complete },
+          { text: "סבבה לי", classes: "btn-outline", action: tour.complete },
+          { text: "כן", classes: "btn-filled", action: tour.next },
         ],
       },
       {
         id: "step-2",
-        text: `ברוך הבא
-        ברוך הבא לסיור בכלי עריכת קורות החיים, נעשה את זה
-        ציק צ'ק`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">ברוך הבא</h3>
+            <p style="margin: 0;">ברוך הבא לסיור בכלי עריכת קורות החיים. נעשה את זה צ'יק צ'ק!</p>
+          </div>
+        `,
         attachTo: { element: ".second-step", on: "bottom" },
-        buttons: [
-          { text: "הקודם", action: tour.back },
-          { text: "הבא", action: tour.next },
-        ],
+        buttons: [{ text: "הבא", classes: "btn-filled", action: tour.next }],
       },
       {
         id: "step-3",
-        text: `עריכה
-        לכל חלק יש מידע משלו שיוצג בקורות החיים עצמם`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">עריכה</h3>
+            <p style="margin: 0;">לכל חלק יש מידע משלו שיוצג בקורות החיים שלך.</p>
+          </div>
+        `,
         attachTo: { element: ".resume-fields", on: "bottom" },
         buttons: [
-          { text: "הקודם", action: tour.back },
-          { text: "הבא", action: tour.next },
+          { text: "הקודם", classes: "btn-outline", action: tour.back },
+          { text: "הבא", classes: "btn-filled", action: tour.next },
         ],
       },
-      //   "וכאן האלמנט הרביעי עם המסר החשוב 😉
       {
         id: "step-4",
-        text: `שינוי תבנית
-        אם תרצה לנסות תבנית שונה תוכל לשנות אותה כאן`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">שינוי תבנית</h3>
+            <p style="margin: 0;">אם תרצה לנסות תבנית שונה – תוכל לשנות אותה כאן.</p>
+          </div>
+        `,
         attachTo: { element: ".template-button", on: "bottom" },
         buttons: [
-          { text: "הקודם", action: tour.back },
-          { text: "הבא", action: tour.next },
+          { text: "הקודם", classes: "btn-outline", action: tour.back },
+          { text: "הבא", classes: "btn-filled", action: tour.next },
         ],
       },
       {
         id: "step-5",
-        text: `תצוגת PDF
-        כאן תוכל לראות כיצד קורות החיים שלך נראים לאחר העדכון האחרון`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">תצוגת PDF</h3>
+            <p style="margin: 0;">כאן תוכל לראות כיצד קורות החיים שלך נראים לאחר העדכון האחרון.</p>
+          </div>
+        `,
         attachTo: { element: ".resume-data", on: "bottom" },
         buttons: [
-          { text: "הקודם", action: tour.back },
-          { text: "הבא", action: tour.next },
+          { text: "הקודם", classes: "btn-outline", action: tour.back },
+          { text: "הבא", classes: "btn-filled", action: tour.next },
         ],
       },
       {
         id: "step-6",
-        text: `סיום
-        לאחר שתסיים ליצור את קורות החיים, תוכל ללחוץ כאן כדי לעבור לעמוד התשלום לקבלת קורות החיים`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">סיום</h3>
+            <p style="margin: 0;">לאחר שתסיים ליצור את קורות החיים, תוכל ללחוץ כאן כדי לעבור לעמוד התשלום.</p>
+          </div>
+        `,
         attachTo: { element: ".download-button", on: "bottom" },
         buttons: [
-          { text: "הקודם", action: tour.back },
-          { text: "סיום", action: tour.complete },
+          { text: "הקודם", classes: "btn-outline", action: tour.back },
+          { text: "הבא", classes: "btn-filled", action: tour.next },
         ],
       },
       {
         id: "step-7",
-        text: `סיור חדש
-        שכחת איך לעשות משהו? פשוט לחץ כאן כדי לבצע מחדש את הסיור`,
+        text: `
+          <div>
+            <h3 style="margin: 0 0 10px 0;">סיור חדש</h3>
+            <p style="margin: 0;">שכחת איך לעשות משהו? פשוט לחץ כאן כדי לבצע שוב את הסיור.</p>
+          </div>
+        `,
         attachTo: {
           element: ".start-toturial",
           on: "bottom",
           offset: { top: 10 },
         },
         buttons: [
-          { text: "הקודם", action: tour.back },
-          { text: "סיום", action: tour.complete },
+          { text: "סיום", classes: "btn-filled", action: tour.complete },
         ],
       },
     ];

@@ -5,11 +5,11 @@ import ModeContext from "../../../context/ModeContext/ModeContext";
 import { Switch } from "@mui/material";
 
 const Theme = () => {
-  const { toggelMode, changeMode } = useContext(ModeContext);
+  const { toggleMode, changeMode } = useContext(ModeContext);
 
   return (
     <Switch
-      checked={!toggelMode}
+      checked={!toggleMode}
       onChange={changeMode}
       icon={<NightsStayIcon />}
       checkedIcon={<WbSunnyIcon />}
