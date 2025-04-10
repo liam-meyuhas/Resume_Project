@@ -8,7 +8,7 @@ const theme = (mode) =>
       mode: mode ? "dark" : "light",
       background: {
         default: mode ? "#333" : "#f5f5f5",
-        paper: mode ? "#rgba(104, 89, 89, 0.25)" : "#f5f5f5",
+        paper: mode ? "rgba(104, 89, 89, 0.25)" : "#f5f5f5",
       },
     },
   });

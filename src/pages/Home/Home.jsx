@@ -1,7 +1,7 @@
 import React from "react";
 import MyButton from "../../style/Button";
 import { useNavigate } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Typography, useTheme } from "@mui/material";
 import { Box } from "@mui/joy";
 import classes from "./home.module.css";
 import UIResume from "./UIResume";
@@ -13,12 +13,25 @@ const Home = () => {
   const handleRoute = () => {
     navigate("resume");
   };
+  const theme = useTheme();
   return (
     <>
-      <Box className={classes.homeContainer}>
+      <Box
+        className={classes.homeContainer}
+        sx={{
+          backgroundColor:
+            theme.palette.mode === "light" ? "rgb(193, 212, 241)" : "#0D1B2A",
+        }}
+      >
         <Box className={classes.header}>
           <Typography sx={{ fontSize: "2.5rem" }}>צור את הקו"ח</Typography>
-          <Typography sx={{ fontSize: "2.5rem", color: "blue" }}>
+          <Typography
+            sx={{
+              fontSize: "2.5rem",
+              color:
+                theme.palette.mode === "light" ? "blue" : "rgb(102, 134, 182)",
+            }}
+          >
             המקצועי שלך
           </Typography>
         </Box>

@@ -10,7 +10,7 @@ const Tour = () => {
       defaultStepOptions: {
         cancelIcon: { enabled: true },
         classes: "shadow-md bg-purple-dark dialog-style",
-        scrollTo: { behavior: "smooth", block: "nearest" },
+        scrollTo: { behavior: "smooth", block: "center" },
         highlightClass: "highlight",
         modalOverlayOpeningPadding: 10,
         modalOverlayOpeningRadius: 5,
@@ -76,6 +76,31 @@ const Tour = () => {
         id: "step-5",
         text: `
           <div>
+            <h3>ערכת צבעים</h3>
+            <p>כאן תוכל לבחור את צבעי ערכת הנושא שלך.</p>
+          </div>
+        `,
+        attachTo: { element: "#palette-target", on: "bottom" },
+        beforeShowPromise: () => {
+          return new Promise((resolve) => {
+            const toggleEvent = new Event("openAccordion");
+            window.dispatchEvent(toggleEvent);
+            setTimeout(() => resolve(), 300);
+          });
+        },
+        buttons: [
+          { text: "הקודם", classes: "btn-outline", action: tour.back },
+          {
+            text: "הבא",
+            classes: "btn-filled",
+            action: tour.next,
+          },
+        ],
+      },
+      {
+        id: "step-6",
+        text: `
+          <div>
             <h3 style="margin: 0 0 10px 0;">תצוגת PDF</h3>
             <p style="margin: 0;">כאן תוכל לראות כיצד קורות החיים שלך נראים לאחר העדכון האחרון.</p>
           </div>
@@ -86,8 +111,9 @@ const Tour = () => {
           { text: "הבא", classes: "btn-filled", action: tour.next },
         ],
       },
+
       {
-        id: "step-6",
+        id: "step-7",
         text: `
           <div>
             <h3 style="margin: 0 0 10px 0;">סיום</h3>
@@ -101,7 +127,7 @@ const Tour = () => {
         ],
       },
       {
-        id: "step-7",
+        id: "step-8",
         text: `
           <div>
             <h3 style="margin: 0 0 10px 0;">סיור חדש</h3>
